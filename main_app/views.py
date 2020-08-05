@@ -14,3 +14,9 @@ def home(request):
         'data': data
     }
     return render(request, 'home.html', context)
+
+def profile(request):
+    context = {
+        'data': data
+    }
+    return render(request, 'profile.html', context)
