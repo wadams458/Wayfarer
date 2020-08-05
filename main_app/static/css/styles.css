@@ -1,3 +1,4 @@
+
 .logo {
     height: 45px;
     padding-top: 9px;
@@ -5,19 +6,68 @@
 
 .btn-primary {
     background-color: #9A031E;
+    border-color: transparent;
 }
 
 .btn-primary:hover{
     background-color: #FB8B24;
+    border-color: transparent;
 }
+
+/* ----------- Navigation Section --------------*/
 
 nav.navbar {
     flex: auto;
 }
 
+.btn a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* ----------- Home Section --------------*/
+
+#carouselExampleInterval {
+    height: 50vh;
+    overflow: hidden;
+}
+
+/* ----------- Profile Section --------------*/
+
 .profile {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+}
+
+.profile-body{
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+#profile-picture {
+    margin-bottom: 16px;
+}
+
+/* ----------- Post Section --------------*/
+
+.posts{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: row;
+}
+
+.card-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
 }

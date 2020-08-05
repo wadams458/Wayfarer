@@ -4,31 +4,41 @@
   <div class="container">
     <div class="row">
       <div class="col">
+        <h1 class="title">Profile</h1>
         <div class="profile">
           <img id="profile-picture" class="img-fluid" src="https://picsum.photos/128/128/?random=1">
-          <p class="title">Profile</p>
-          <p class="name">John Smith</p>
-          <p>Juneau, Alaska</p>
-          <p>1 Jan 2016</p>
+          <div class="profile-body">
+            <p class="name">{{profile.user.username}}</p>
+            <p>{{profile.city}}</p>
+            <p> Date Joined: 1 Jan 2016</p>
+            <a href="/">Edit Profile</a>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="row">
       <div class="col">
-        <h2 class="subtitle">
-          John Smith's Posts
-        </h2>
+        <div class="posts">
+          <h2 class="subtitle">
+            {{profile.user.username}}'s Posts
+          </h2>
+          <button type="button" class="btn btn-primary">Create Post</button>
+        </div>
         <!-- Card Post -->
-        <div class="card" style="width: 18rem;">
-          <img src="https://picsum.photos/640/360/?random=2" class="card-img-top" alt="Placeholder image">
-          <div class="card-body">
-            <h5 class="card-title">John Smith</h5>
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-          <div class="card-body">
-            <a href="#" class="card-link">View Post</a>
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-2">
+              <img src="https://picsum.photos/200" class="card-img" alt="Placeholder image">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="card-link">View Post</a>
+              </div>
+            </div>
           </div>
         </div>
-        <button type="button" class="btn btn-primary">Create Post</button>
       </div>
     </div>
   </div>
