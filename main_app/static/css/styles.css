@@ -1,0 +1,12 @@
+.logo {
+    height: 45px;
+    padding-top: 9px;
+}
+
+.button.is-primary {
+    background-color: #9A031E;
+}
+
+.button.is-primary:hover{
+    background-color: #FB8B24;
+}

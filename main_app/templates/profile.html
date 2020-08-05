@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <figure class="image is-128x128">
+          <img class="is-rounded" src="https://picsum.photos/128/128/?random=1">
+        </figure>
+        <h1 class="title">Profile</h1>
+        <h2 class="subtitle">
+          John Smith
+        </h2>
+        <p>current city</p>
+        <p>day joined</p>
+      </div>
+      <div class="column">
+        <h2 class="subtitle">
+          John Smith's Posts
+        </h2>
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <img src="https://picsum.photos/640/360/?random=2" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="card-content">
+            <p class="title is-4">John Smith</p>    
+            <div class="content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+              <a href="#">#css</a> <a href="#">#responsive</a>
+              <br>
+              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            </div>
+          </div>
+        </div>
+        <button class="button is-primary">Create Post</button>
+      </div>
+    </div>
+    
+  </div>
+</section>
+{% endblock %}
