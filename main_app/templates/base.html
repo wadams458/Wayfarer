@@ -36,19 +36,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active"></li>
-          <li class="nav-item"><a class="nav-link" href="/user/">Profile</a></li>
-          <li class="nav-item">
-            <button type="button" class="btn btn-primary">
-              <a class="nav-link" href="/">Sign In</a>
-            </button>
-          </li>
-          <li class="nav-item">
-            <button type="button" class="btn btn-secondary">
-              <a class="nav-link" href="/">Sign Out</a>
-            </button>
-          </li>
+          <li class="nav-item"> <a class="nav-link" href="/user/">Profile</a></li>
         </ul>
+       
+        <button type="button" class="btn btn-primary">
+          <a href="/">Sign In</a>
+        </button>
+        <button type="button" class="btn btn-secondary">
+          <a href="/">Sign Out</a>
+        </button>
       </div>
     </nav>
 </header>
@@ -58,7 +54,9 @@
     {% endblock %}
 
   <footer class="page-footer">
-    <div class="right">All Rights Reserved, &copy; 2020 Wayfarer &nbsp;</div>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <a class="navbar-brand" href="#">All Rights Reserved, &copy; 2020 Wayfarer &nbsp;</a>
+    </nav>
   </footer>
 </body>
 </html>
