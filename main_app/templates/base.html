@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Wayfarer</title>
-  <!-- Materialize CSS -->
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
   <!-- Main CSS -->
 
@@ -16,12 +16,11 @@
     <script defer src="scripts.js"></script>
  
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  <!-- Materialize JS -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
-
-{% comment %} NavBar {% endcomment %}
-
-<header> 
+  <!-- JS -->
+  <script defer src="{% static 'js/app.js' %}"></script>
+</head>
+<body>
+  <header> 
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="/">PartyWave</a>
       <button
@@ -35,7 +34,6 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active"></li>
@@ -48,9 +46,10 @@
       </div>
     </nav>
 </header>
+ 
     {% block content %}
     {% endblock %}
-  </main>
+
   <footer class="page-footer">
     <div class="right">All Rights Reserved, &copy; 2020 Wayfarer &nbsp;</div>
   </footer>
