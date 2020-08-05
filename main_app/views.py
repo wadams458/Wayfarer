@@ -26,16 +26,16 @@ def home(request):
 
 def profile(request):
     profile = Profile.objects.get(id=request.user.id)
-    print(profile)
+    posts = Post.objects.filter(user=request.user.id)
     context = {
-        'profile': profile
+        'profile': profile,
+        'posts': posts
     }
     return render(request, 'profile.html', context)
 
-def post(request):
-    post = Post.objects.get(user=request.user.id)
-    print()
+def post(request, post_id):
+    post = Post.objects.get(id=post_id)
     context = {
-    'post': post
+        'post': post
     }
     return render(request, 'post.html', context)
