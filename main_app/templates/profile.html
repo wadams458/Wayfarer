@@ -2,11 +2,9 @@
 {% block content %}
 <section class="section">
   <div class="container">
-    <div class="columns">
-      <div class="column">
-        <figure class="image is-128x128">
-          <img class="is-rounded" src="https://picsum.photos/128/128/?random=1">
-        </figure>
+    <div class="row">
+      <div class="col">
+        <img class="img-fluid" src="https://picsum.photos/128/128/?random=1">
         <h1 class="title">Profile</h1>
         <h2 class="subtitle">
           John Smith
@@ -14,31 +12,25 @@
         <p>current city</p>
         <p>day joined</p>
       </div>
-      <div class="column">
+      <div class="col">
         <h2 class="subtitle">
           John Smith's Posts
         </h2>
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-16by9">
-              <img src="https://picsum.photos/640/360/?random=2" alt="Placeholder image">
-            </figure>
+        <!-- Card Post -->
+        <div class="card" style="width: 18rem;">
+          <img src="https://picsum.photos/640/360/?random=2" class="card-img-top" alt="Placeholder image">
+          <div class="card-body">
+            <h5 class="card-title">John Smith</h5>
+            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
-          <div class="card-content">
-            <p class="title is-4">John Smith</p>    
-            <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-              <a href="#">#css</a> <a href="#">#responsive</a>
-              <br>
-              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-            </div>
+          <div class="card-body">
+            <a href="#" class="card-link">View Post</a>
           </div>
         </div>
-        <button class="button is-primary">Create Post</button>
+        <button type="button" class="btn btn-primary">Create Post</button>
       </div>
     </div>
-    
   </div>
 </section>
 {% endblock %}
