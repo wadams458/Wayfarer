@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Title -->
+            <h1 class="mt-4">{{post.title}}</h1>
+
+            <!-- Author -->
+            <p class="lead">
+              by
+              <a href="profile">{{post.author}}</a>
+              <br>
+              Posted on {{post.date_created}}
+            </p>
+
+            <!-- Date/Time -->
+            <p></p>
+
+            <hr>
+
+            <!-- Preview Image -->
+            <img class="img-fluid rounded" src="{{post.img}}" alt="">
+
+            <hr>
+
+            <!-- Post Content -->
+            <p>{{post.body}}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
