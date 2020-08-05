@@ -77,9 +77,7 @@ WSGI_APPLICATION = 'project_wayfarer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'wayfarer',
-        'USER': 'Jimmy',
-        'PASSWORD': 'test'
+        'NAME': 'wayfarer'
     }
 }
 
