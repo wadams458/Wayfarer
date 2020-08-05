@@ -3,10 +3,14 @@
     padding-top: 9px;
 }
 
-.button.is-primary {
+.btn-primary {
     background-color: #9A031E;
 }
 
-.button.is-primary:hover{
+.btn-primary:hover{
     background-color: #FB8B24;
+}
+
+nav.navbar {
+    flex: auto;
 }
