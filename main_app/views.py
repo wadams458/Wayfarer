@@ -27,7 +27,7 @@ def post(request, post_id):
     return render(request, 'post.html', context)
 
 
-def login(request):
+def custom_login(request):
     error_message = ''
     signup_form = UserCreationForm()
     login_form = AuthenticationForm()
