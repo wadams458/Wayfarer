@@ -20,6 +20,11 @@ nav.navbar {
     flex: auto;
 }
 
+.mr-auto {
+    left: auto !important;
+    right: 0px;
+  }
+
 .btn a{
     color: #ffffff;
     text-decoration: none;

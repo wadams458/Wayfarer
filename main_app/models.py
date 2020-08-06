@@ -32,6 +32,5 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     
-
     def __str__(self):
       return self.title

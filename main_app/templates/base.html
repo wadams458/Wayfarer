@@ -35,16 +35,28 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarColor02">
+        <!-- Left Nav -->
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item"> <a class="nav-link" href="/user/">Profile</a></li>
+          <li class="nav-item active"> <a class="nav-link" href="{% url 'profile' %}">City</a></li>
+          
         </ul>
-       
-        <button type="button" class="btn btn-primary">
-          <a href="/">Sign In</a>
-        </button>
-        <button type="button" class="btn btn-secondary">
-          <a href="/">Sign Out</a>
-        </button>
+
+        <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Profile
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+              </div>
+            </li>
+          {% else %}
+            <li class="nav-item"> <a class="nav-link" href="{% url 'login' %}">Log In</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'login' %}">Sign Up</a></li>
+          {% endif %}
+        </ul>
       </div>
     </nav>
 </header>
