@@ -39,3 +39,14 @@ def post(request, post_id):
         'post': post
     }
     return render(request, 'post.html', context)
+
+def edit_profile(request, profile_id):
+    profile = Profile.objects.get(id=request.user.id)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            profile = form.save()
+            return redirect('detail', profile.id)
+    else:
+        form = ProfileForm(instance=profile)
+        return render(request, 'profileEdit.html', {'form': form})
