@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+
 {% block content %}
 <section class="section">
   <div class="container">
@@ -6,12 +12,14 @@
       <div class="col">
         <h1 class="title">Profile</h1>
         <div class="profile">
-          <img id="profile-picture" class="img-fluid" src="https://picsum.photos/128/128/?random=1">
+          <img id="profile-picture" class="img-fluid" src="{% static profile.img %}">
           <div class="profile-body">
-            <p class="name">{{profile.user.username}}</p>
-            <p>{{profile.city}}</p>
-            <p> Date Joined: 1 Jan 2016</p>
-            <a href="">Edit Profile</a>
+            <p class="name">Username: {{profile.user.username}}</p>
+            <p class="name">Name: {{profile.user.first_name}} {{profile.user.last_name}}
+            </p>
+            <p>City: {{profile.city}}</p>
+            <p> Date Joined: {{profile.user.date_joined}}</p>
+            <a href="{% url 'profile_edit' %}">Edit Profile</a>
           </div>
         </div>
       </div>
@@ -36,7 +44,7 @@
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-2">
-                <img src="https://picsum.photos/200" class="card-img" alt="Placeholder image">
+                <img src="{% static post.img %}" class="card-img" alt="Placeholder image">
               </div>
               <div class="col-md-8">
                 <div class="card-body">

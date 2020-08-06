@@ -1,0 +1,42 @@
+/* ----------- Profile Section --------------*/
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.profile-body{
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+}
+
+#profile-picture {
+  margin-bottom: 16px;
+}
+
+/* ----------- Post Section --------------*/
+
+.posts{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.card {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+}
+
+.card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
