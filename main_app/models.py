@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 #Profiles
 class Profile(models.Model):
-    city = models.CharField(max_length=100)
+    city = models.CharField(max_length=100, blank=True)
     img = models.CharField(max_length=300, default="images/default_profile.png")
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     
@@ -32,6 +32,5 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     
-
     def __str__(self):
       return self.title
