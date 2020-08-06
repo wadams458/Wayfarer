@@ -7,20 +7,24 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    posts = Post.objects.all().order_by('-created_at')[:3]
+    context = {
+        'posts': posts
+    }
+    # return HttpResponse(f"{posts[0]} {posts[1]}")
+    return render(request, 'home.html', context)
 
 
 # ------------------- CITIES/POSTS -------------------
 
 def cities(request, city_id):
     cities = City.objects.all()
-    posts = Post.objects.filter(id=city_id)
+    posts = Post.objects.filter(city=city_id).order_by('-created_at')
     context = {
         'cities': cities,
         'posts': posts
     }
-    return HttpResponse(f"{cities[city_id-1]}")
-    # return render(request, 'cities.html', context)
+    return render(request, 'cities.html', context)
 
 def post(request, post_id):
     post = Post.objects.get(id=post_id)
