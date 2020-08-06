@@ -1,5 +1,5 @@
-:root{
-    --primary: #9A031E;
+:root {
+  --primary: #9a031e;
 }
 
 .logo {
@@ -17,14 +17,14 @@
   border-color: transparent;
 }
 
-.btn-primary:active{
-    background-color: #FB8B24;
-    border-color: transparent;
+.btn-primary:active {
+  background-color: #fb8b24;
+  border-color: transparent;
 }
 
-.btn-primary:focus{
-    background-color: #FB8B24;
-    border-color: transparent;
+.btn-primary:focus {
+  background-color: #fb8b24;
+  border-color: transparent;
 }
 
 /* ----------- Navigation Section --------------*/
@@ -107,9 +107,20 @@ h1 {
 
 .card-header {
   font-size: 40px;
+  margin: 15px;
+}
+
+.card-footer {
+  margin: 15px;
+}
+
+.card-footer2 {
+  margin: 30px;
+  font-size: 40px;
 }
 
 .carousel-inner {
   height: 400px;
   display: flex;
+  border-radius: 5%;
 }
