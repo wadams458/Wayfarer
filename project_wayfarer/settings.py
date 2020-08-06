@@ -123,4 +123,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Add this variable to specify where successful logins should redirect to
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/profile'
+LOGOUT_REDIRECT_URL = '/'

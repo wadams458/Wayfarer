@@ -25,6 +25,7 @@
           <button type="button" class="btn btn-primary">Create Post</button>
         </div>
         <!-- Card Post -->
+        {% for post in users %}
         <div class="card mb-3">
           <div class="row no-gutters">
             <div class="col-md-2">
@@ -32,13 +33,14 @@
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">View Post</a>
+                <h5 class="card-title"><a href="{% url 'post' user.id %}"></a>{{ post.name }}</h5>
+                <p class="card-text">{{ post.description }}Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="{% url 'post' user.id %}" class="card-link">View Post</a>
               </div>
             </div>
           </div>
         </div>
+        {% endfor %}
       </div>
     </div>
   </div>
