@@ -8,6 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Wayfarer</title>
   <!-- Main CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 {% comment %} NavBar {% endcomment %}
@@ -15,6 +16,7 @@
   <script defer src="{% static 'js/app.js' %}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
+  {% block extra_head %}{% endblock %}
 </head>
 <body>
   <header> 
@@ -53,7 +55,7 @@
               </div>
             </li>
           {% else %}
-            <li class="nav-item"> <a class="nav-link" href="{% url 'login' %}">Log In</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'custom_login' %}">Log In</a></li>
             <li class="nav-item"> <a class="nav-link" href="{% url 'signup' %}">Sign Up</a></li>
           {% endif %}
         </ul>

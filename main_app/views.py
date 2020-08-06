@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .models import Post, Profile, City
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 # Create your views here.
 
@@ -27,6 +27,13 @@ def post(request, post_id):
     return render(request, 'post.html', context)
 
 
+def login(request):
+    error_message = ''
+    signup_form = UserCreationForm()
+    login_form = AuthenticationForm()
+    context = {'signup_form': signup_form, 'login_form': login_form, 'error_message': error_message}
+    return render(request, 'registration/login.html', context)
+
 def signup(request):
     error_message = ''
     if request.method == 'POST':
@@ -42,6 +49,7 @@ def signup(request):
       else:
         error_message = 'Invalid sign up - try again'
     # A bad POST or a GET request, so render signup.html with an empty form
-    form = UserCreationForm()
-    context = {'form': form, 'error_message': error_message}
+    signup_form = UserCreationForm()
+    login_form = AuthenticationForm()
+    context = {'signup_form': signup_form, 'login_form': login_form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
