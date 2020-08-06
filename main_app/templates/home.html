@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
+{% load static %}
+ {% block extra_head %}<link rel="stylesheet" href="{% static 'css/styles.css' %}">{% endblock %}
 {% block content %}
+
  <!-- Carousel -->
  <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active"  data-interval="10000">
-      <img src="https://picsum.photos/640" class="d-block w-100" alt="...">
+      <img src="{% static 'images/Austin.jpg'%}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" data-interval="2000">
-      <img src="https://picsum.photos/640" class="d-block w-100" alt="...">
+      <img src="{% static 'images/Croatia.jpg'%}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="https://picsum.photos/640" class="d-block w-100" alt="...">
+      <img src="{% static 'images/Croatia.jpg'%}" class="d-block w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
@@ -25,21 +28,68 @@
  
  
 <!-- End Carousel -->
-<h1>Wayfarer is ...</h1>
-<div class="row">
-  <div class="col">
-    <h2>Topic</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa enim sit id at labore nam tempora excepturi? Velit, cupiditate magnam fugit sapiente nisi iure dolores aspernatur quam perferendis quis ea.</p>
+
+<!--Wayfarer Card-->
+
+<div class="card text-center">
+  <div class="card-header">
+    Wayfarer
   </div>
-  <div class="col">
-    <h2>Topic</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa enim sit id at labore nam tempora excepturi? Velit, cupiditate magnam fugit sapiente nisi iure dolores aspernatur quam perferendis quis ea.</p>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text">Wayfarer is a travel community that serves to both answer questions and inspire travelers. It's a place to read and submit opinions, get advice on travel-related subjects, and browse for ideas, tips, and answers to questions you didn't even know you had.</p>
+    {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
   </div>
-  <div class="col">
-    <h2>Topic</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa enim sit id at labore nam tempora excepturi? Velit, cupiditate magnam fugit sapiente nisi iure dolores aspernatur quam perferendis quis ea.</p>
+  <div class="card-footer text-muted">
+    Happy Exploring!
   </div>
 </div>
+<!--End Wayfarer Card-->
+
+{% comment %} <h1>Wayfarer is a travel community that serves to both answer questions and inspire travelers. It's a place to read and submit opinions, get advice on travel-related subjects, and browse for ideas, tips, and answers to questions you didn't even know you had. </h1> {% endcomment %}
+{% comment %} <div class="row">
+  <div class="col">
+    <h2>Topic</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa enim sit id at labore nam tempora excepturi? Velit, cupiditate magnam fugit sapiente nisi iure dolores aspernatur quam perferendis quis ea.</p>
+  </div>
+  <div class="col">
+    <h2>Topic</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa enim sit id at labore nam tempora excepturi? Velit, cupiditate magnam fugit sapiente nisi iure dolores aspernatur quam perferendis quis ea.</p>
+  </div>
+  <div class="col">
+    <h2>Topic</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa enim sit id at labore nam tempora excepturi? Velit, cupiditate magnam fugit sapiente nisi iure dolores aspernatur quam perferendis quis ea.</p>
+  </div>
+</div> {% endcomment %}
+
+<br>
+<div class="card-deck">
+  <div class="card" id="home-card">
+    <img class="card-img-top" src="{% static 'images/Croatia.jpg'%}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Tokyo</h5>
+      <p class="card-text">Tokyo, Japan’s busy capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples. The opulent Meiji Shinto Shrine is known for its towering gate and surrounding woods. The Imperial Palace sits amid large public gardens.</p>
+      <p class="card-text"><small class="text-muted">Wednesday July 29, 2020</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="{% static 'images/Austin.jpg'%}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Austin, Texas</h5>
+      <p class="card-text">Austin is the state capital of Texas, an inland city bordering the Hill Country region. Home to the University of Texas flagship campus, Austin is known for its eclectic live-music scene centered around country, blues and rock. </p>
+      <p class="card-text"><small class="text-muted">Wednesday July 22, 2020</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="{% static 'images/Tokyo.jpg'%}"" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Croatia</h5>
+      <p class="card-text">Croatia, officially the Republic of Croatia, is a country in Southeast Europe. It borders Slovenia to the northwest, Hungary to the northeast, Serbia to the east, Bosnia and Herzegovina, and Montenegro to the southeast, sharing a maritime border with Italy.</p>
+      <p class="card-text"><small class="text-muted">Wednesday July 15,2020 </small></p>
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}
 
