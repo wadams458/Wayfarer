@@ -7,8 +7,34 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    posts = Post.objects.all().order_by('-created_at')[:3]
+    context = {
+        'posts': posts
+    }
+    # return HttpResponse(f"{posts[0]} {posts[1]}")
+    return render(request, 'home.html', context)
 
+
+# ------------------- CITIES/POSTS -------------------
+
+def cities(request, city_id):
+    cities = City.objects.all()
+    posts = Post.objects.filter(city=city_id).order_by('-created_at')
+    context = {
+        'cities': cities,
+        'posts': posts
+    }
+    return render(request, 'cities.html', context)
+
+def post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    context = {
+        'post': post
+    }
+    return render(request, 'post.html', context)
+
+
+# ------------------- PROFILE -------------------
 
 def profile(request):
     profile = Profile.objects.get(user=request.user.id)
@@ -20,31 +46,25 @@ def profile(request):
     return render(request, 'profile.html', context)
 
 def edit_profile(request):
-  profile = Profile.objects.get(user=request.user.id)
-  user = request.user
-  if request.method == 'POST':
-    profile_form = ProfileForm(request.POST, instance=profile)
-    user_form = UserForm(request.POST, instance=user)
+    profile = Profile.objects.get(user=request.user.id)
+    user = request.user
+    if request.method == 'POST':
+      profile_form = ProfileForm(request.POST, instance=profile)
+      user_form = UserForm(request.POST, instance=user)
 
-    if profile_form.is_valid() and user_form.is_valid():
-      profile = profile_form.save()
-      user = user_form.save()
-      return redirect('profile')
-  else:
-    # Create Form
-    profile_form = ProfileForm(instance=profile)
-    user_form = UserForm(instance=user)
-    # Render Form
-    return render(request, 'profileEdit.html', {'profile_form': profile_form, 'user_form': user_form})
+      if profile_form.is_valid() and user_form.is_valid():
+        profile = profile_form.save()
+        user = user_form.save()
+        return redirect('profile')
+    else:
+      # Create Form
+      profile_form = ProfileForm(instance=profile)
+      user_form = UserForm(instance=user)
+      # Render Form
+      return render(request, 'profileEdit.html', {'profile_form': profile_form, 'user_form': user_form})
 
 
-def post(request, post_id):
-    post = Post.objects.get(id=post_id)
-    context = {
-        'post': post
-    }
-    return render(request, 'post.html', context)
-
+# ------------------- LOGIN/AUTH RELATED -------------------
 
 def custom_login(request):
     error_message = ''
