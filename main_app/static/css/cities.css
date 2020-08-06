@@ -1,0 +1,36 @@
+.posts{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.card {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  align-items: center;
+}
+
+.card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.city-container {
+  padding: 16px;
+}
+
+.card-img {
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.card-title{
+  margin-left: 24px;
+  margin-bottom: 0px;
+}

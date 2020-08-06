@@ -72,3 +72,7 @@ def signup(request):
     login_form = AuthenticationForm()
     context = {'signup_form': signup_form, 'login_form': login_form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+def cities(request):
+    return render(request, 'cities.html')
+
