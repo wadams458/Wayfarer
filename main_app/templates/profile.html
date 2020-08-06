@@ -11,7 +11,7 @@
             <p class="name">{{profile.user.username}}</p>
             <p>{{profile.city}}</p>
             <p> Date Joined: 1 Jan 2016</p>
-            <a href="{% url 'edit_profile' profile.id%}">Edit Profile</a>
+            <a href="">Edit Profile</a>
           </div>
         </div>
       </div>
@@ -25,22 +25,34 @@
           <button type="button" class="btn btn-primary">Create Post</button>
         </div>
         <!-- Card Post -->
-        
-        <div class="card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-2">
-              <img src="https://picsum.photos/200" class="card-img" alt="Placeholder image">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title"><a href="{% url 'post' user.id %}"></a>{{ post.name }}</h5>
-                <p class="card-text">{{ post.description }}Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="{% url 'post' user.id %}" class="card-link">View Post</a>
+        {% if not posts  %}
+        <div class="row">    
+          <div class="col">
+            <p>You haven't made any posts</p>
+          </div>
+        </div>
+        {% else %}
+        {% for post in posts %}
+          <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-2">
+                <img src="https://picsum.photos/200" class="card-img" alt="Placeholder image">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <a href="{% url 'post' post.id %}">
+                      {{ post.title }}
+                    </a>
+                  </h5>
+                  <p class="card-text">{{ post.body }}</p>
+                  <a href="{% url 'post' post.id %}" class="card-link">View Post</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        
+          {% endfor %}
+          {% endif %}
       </div>
     </div>
   </div>
