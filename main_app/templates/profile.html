@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="title">Profile</h1>
+        <div class="profile">
+          <img id="profile-picture" class="img-fluid" src="{% static profile.img %}">
+          <div class="profile-body">
+            <p class="name">Username: {{profile.user.username}}</p>
+            <p class="name">Name: {{profile.user.first_name}} {{profile.user.last_name}}
+            </p>
+            <p>City: {{profile.city}}</p>
+            <p> Date Joined: {{profile.user.date_joined}}</p>
+            <a href="{% url 'profile_edit' %}">Edit Profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="posts">
+          <h2 class="subtitle">
+            {{profile.user.username}}'s Posts
+          </h2>
+          <button type="button" class="btn btn-primary">Create Post</button>
+        </div>
+        <!-- Card Post -->
+        {% if not posts  %}
+        <div class="row">    
+          <div class="col">
+            <p>You haven't made any posts</p>
+          </div>
+        </div>
+        {% else %}
+        {% for post in posts %}
+          <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-2">
+                <img src="{% static post.img %}" class="card-img" alt="Placeholder image">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <a href="{% url 'post' post.id %}">
+                      {{ post.title }}
+                    </a>
+                  </h5>
+                  <p class="card-text">{{ post.body }}</p>
+                  <a href="{% url 'post' post.id %}" class="card-link">View Post</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

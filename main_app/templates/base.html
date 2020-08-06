@@ -7,36 +7,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Wayfarer</title>
-  <!-- Materialize CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <!-- Main CSS -->
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+<!-- Main css -->
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  <!-- Materialize JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+{% comment %} NavBar {% endcomment %}
+  <!-- JS -->
+  <script defer src="{% static 'js/app.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
+  {% block extra_head %}{% endblock %}
 </head>
 <body>
-  <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <ul>
-          <li>
-            <a href="{% url 'home' %}" class="left brand-logo">
-                &nbsp;&nbsp; <img class="logo" src="{% static 'images/logo.png' %}"> <span>Wayfarer</span>
-            </a>
-          </li>
+  <header> 
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="/">    
+        <img src="{% static 'images/logo.png'%}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        Wayfarer</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarColor02"
+        aria-controls="navbarColor02"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <!-- Left Nav -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active"> <a class="nav-link" href="{% url 'profile' %}">City</a></li>
+          
         </ul>
-        <ul class="right">
-          <li><a href="">n/a</a></li>
+
+        <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Profile
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+              </div>
+            </li>
+          {% else %}
+            <li class="nav-item"> <a class="nav-link" href="{% url 'custom_login' %}">Log In</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'signup' %}">Sign Up</a></li>
+          {% endif %}
         </ul>
       </div>
     </nav>
-  </header>
-  <main class="container">
+</header>
+
+
     {% block content %}
     {% endblock %}
-  </main>
+
   <footer class="page-footer">
-    <div class="right">All Rights Reserved, &copy; 2020 Wayfarer &nbsp;</div>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <a class="navbar-brand" href="#">All Rights Reserved, &copy; 2020 Wayfarer &nbsp;</a>
+    </nav>
   </footer>
 </body>
 </html>

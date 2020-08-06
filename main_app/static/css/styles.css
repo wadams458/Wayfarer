@@ -1,4 +1,52 @@
+:root{
+    --primary: #9A031E;
+}
+
 .logo {
     height: 45px;
     padding-top: 9px;
 }
+
+.btn-primary {
+    background-color: #9A031E;
+    border-color: transparent;
+}
+
+.btn-primary:hover{
+    background-color: #FB8B24;
+    border-color: transparent;
+}
+
+.btn-primary:active{
+    background-color: #FB8B24;
+    border-color: transparent;
+}
+
+.btn-primary:focus{
+    background-color: #FB8B24;
+    border-color: transparent;
+}
+
+/* ----------- Navigation Section --------------*/
+
+nav.navbar {
+    flex: auto;
+}
+
+.mr-auto {
+    left: auto !important;
+    right: 0px;
+  }
+
+.btn a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* ----------- Home Section --------------*/
+
+#carouselExampleInterval {
+    height: 50vh;
+    overflow: hidden;
+}
+
