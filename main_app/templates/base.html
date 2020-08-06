@@ -7,24 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Wayfarer</title>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
   <!-- Bootstrap CSS -->
-=======
+
   
   <!-- Bootstrap CSS -->
 
->>>>>>> 8cb58240c89e127fd20afd3fb77386b6fcbce3c8
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
-=======
->>>>>>> d4acecf90e0f10f03b9cccaadae2c920725d4e13
+
   <!-- Main CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-<<<<<<< HEAD
-=======
 {% comment %} NavBar {% endcomment %}
->>>>>>> 8cb58240c89e127fd20afd3fb77386b6fcbce3c8
   <!-- JS -->
   <script defer src="{% static 'js/app.js' %}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -32,10 +27,6 @@
 </head>
 <body>
   <header> 
-<<<<<<< HEAD
-=======
-
->>>>>>> 8cb58240c89e127fd20afd3fb77386b6fcbce3c8
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="/">    
         <img src="{% static 'images/logo.png'%}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
@@ -53,33 +44,27 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active"></li>
-          <li class="nav-item"><a class="nav-link" href="/user/">Profile</a></li>
-          <li class="nav-item">
-            <button type="button" class="btn btn-primary">
-              <a class="nav-link" href="/">Sign In</a>
-            </button>
-          </li>
-          <li class="nav-item">
-            <button type="button" class="btn btn-secondary">
-              <a class="nav-link" href="/">Sign Out</a>
-            </button>
-          </li>
+          <li class="nav-item"> <a class="nav-link" href="/user/">Profile</a></li>
         </ul>
+       
+        <button type="button" class="btn btn-primary">
+          <a href="/">Sign In</a>
+        </button>
+        <button type="button" class="btn btn-secondary">
+          <a href="/">Sign Out</a>
+        </button>
       </div>
     </nav>
 </header>
-<<<<<<< HEAD
- 
-=======
 
 
->>>>>>> 8cb58240c89e127fd20afd3fb77386b6fcbce3c8
     {% block content %}
     {% endblock %}
 
   <footer class="page-footer">
-    <div class="right">All Rights Reserved, &copy; 2020 Wayfarer &nbsp;</div>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <a class="navbar-brand" href="#">All Rights Reserved, &copy; 2020 Wayfarer &nbsp;</a>
+    </nav>
   </footer>
 </body>
 </html>
