@@ -3,18 +3,18 @@
 }
 
 .logo {
-    height: 45px;
-    padding-top: 9px;
+  height: 45px;
+  padding-top: 9px;
 }
 
 .btn-primary {
-    background-color: #9A031E;
-    border-color: transparent;
+  background-color: #9a031e;
+  border-color: transparent;
 }
 
-.btn-primary:hover{
-    background-color: #FB8B24;
-    border-color: transparent;
+.btn-primary:hover {
+  background-color: #fb8b24;
+  border-color: transparent;
 }
 
 .btn-primary:active{
@@ -30,23 +30,86 @@
 /* ----------- Navigation Section --------------*/
 
 nav.navbar {
-    flex: auto;
+  flex: auto;
 }
 
 .mr-auto {
-    left: auto !important;
-    right: 0px;
-  }
+  left: auto !important;
+  right: 0px;
+}
 
-.btn a{
-    color: #ffffff;
-    text-decoration: none;
+.btn a {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /* ----------- Home Section --------------*/
 
 #carouselExampleInterval {
-    height: 50vh;
-    overflow: hidden;
+  height: 50vh;
+  overflow: hidden;
 }
 
+/* ----------- Profile Section --------------*/
+/* 
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profile-body {
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+}
+
+#profile-picture {
+  margin-bottom: 16px;
+} */
+
+/* ----------- Post Section --------------*/
+
+/* .posts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+} */
+
+/* .card {
+  margin-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+} */
+
+.card-deck {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+}
+.card-img-top {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+.card-header {
+  font-size: 40px;
+}
+
+.carousel-inner {
+  height: 400px;
+  display: flex;
+}
