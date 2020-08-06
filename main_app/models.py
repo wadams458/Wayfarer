@@ -17,7 +17,7 @@ class Profile(models.Model):
 class City(models.Model):
     name = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
-    img = models.CharField(max_length=300, default="images/default_city.png")
+    img = models.CharField(max_length=300, default="images/default_city.jpg")
 
     def __str__(self):
         return self.name    
@@ -26,7 +26,7 @@ class City(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100)
     body = models.CharField(max_length=100000)
-    img = models.CharField(max_length=300, default="images/default_post.png")
+    img = models.CharField(max_length=300, default="images/default_post.jpg")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

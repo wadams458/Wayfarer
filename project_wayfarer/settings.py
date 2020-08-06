@@ -80,7 +80,6 @@ DATABASES = {
         'NAME': 'wayfarer',
         'USER': 'Jimmy',
         'PASSWORD': 'test'
-        
     }
 }
 
