@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .models import Post, Profile, City
+from .forms import ProfileForm, UserForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
@@ -18,6 +19,24 @@ def profile(request):
     }
     return render(request, 'profile.html', context)
 
+def edit_profile(request):
+  profile = Profile.objects.get(user=request.user.id)
+  user = request.user
+  if request.method == 'POST':
+    profile_form = ProfileForm(request.POST, instance=profile)
+    user_form = UserForm(request.POST, instance=user)
+
+    if profile_form.is_valid() and user_form.is_valid():
+      profile = profile_form.save()
+      user = user_form.save()
+      return redirect('profile')
+  else:
+    # Create Form
+    profile_form = ProfileForm(instance=profile)
+    user_form = UserForm(instance=user)
+    # Render Form
+    return render(request, 'profileEdit.html', {'profile_form': profile_form, 'user_form': user_form})
+
 
 def post(request, post_id):
     post = Post.objects.get(id=post_id)
@@ -27,7 +46,7 @@ def post(request, post_id):
     return render(request, 'post.html', context)
 
 
-def login(request):
+def custom_login(request):
     error_message = ''
     signup_form = UserCreationForm()
     login_form = AuthenticationForm()
