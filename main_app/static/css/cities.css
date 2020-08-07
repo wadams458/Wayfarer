@@ -1,5 +1,29 @@
+*{
+  box-sizing: border-box;
+}
+
+.navbar{
+  background-color:#ffffff;
+}
+
+body{
+  background-color: #EDF2F4;
+}
 #container {
   margin-bottom: 24px;
+}
+
+.row{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 /* ----------- Cities SECTION -------------*/
@@ -13,6 +37,7 @@
 }
 
 .cities-btn {
+  margin-top: 16px;
   margin-bottom: 16px;
   display: flex;
   flex-direction: row;
@@ -20,16 +45,23 @@
   align-items: center;
   width: 100%;
   border-radius: 8px;
+  border: 2px solid;
   border-color: transparent;
-  flex-wrap: wrap;
-}
-
-.cities-btn:hover{
-
+  flex-wrap: wrap; 
+  background-color: #EDF2F4;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 2px 8px 0 rgba(0,0,0,0.2);
 }
 
 .cities-btn.active  {
-  background-color: red;
+  box-shadow: 0 4px 8px 0 rgba(217, 4, 41,0.2), 0 3px 10px 0 rgba(217, 4, 41, 0.19)
+}
+
+.cities-btn:hover {
+  box-shadow: 0 4px 8px 0 rgba(217, 4, 41,0.2), 0 3px 10px 0 rgba(217, 4, 41, 0.19)
+}
+
+.cities-btn.card-title:hover{
+  color: #EF233C;
 }
 
 .card-body {
@@ -39,12 +71,13 @@
 }
 
 .city-container {
-  padding: 16px;
-  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 18px;
   border-radius: 8px;
-  margin: 8px;
-  background-color: #777777;
-  height:100%;
+  margin: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  background-color: #ffffff;
+  height: 98%;
 }
 
 .card-img {
@@ -53,9 +86,10 @@
 }
 
 .card-title{
-  margin-left: 24px;
+  margin-left: 16px;
   margin-bottom: 0px;
 }
+
 /* ----------- POST SECTION -------------*/
 .post-header{
   display: flex;
@@ -70,12 +104,23 @@
   max-height: 200px;
 }
 
+.country{
+  opacity: 80%;
+}
+
+.divider{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .post-container {
-  padding: 16px;
-  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 18px;
   border-radius: 8px;
-  margin: 8px;
-  height:100%;
+  margin: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  height: 98%;
+  background-color: #ffffff;
 }
 
 .post-img {
@@ -91,7 +136,7 @@
 
 .post-button{
   border-radius: 100%;
-  background-color: #9a031e;
+  background-color: #D90429;
   color: #ffffff;
   border-color: transparent;
   height: 42px;
@@ -100,11 +145,15 @@
 }
 
 .post-button:hover{
-  background-color: #fb8b24;
+  background-color: #EF233C;
 }
 .post-button:active{
-  background-color: #fb8b24;
+  background-color: #EF233C;
 }
 .post-button:focus{
-  background-color: #fb8b24;
+  background-color: #EF233C;
+}
+
+.post.card{
+  border-radius: 8px;
 }

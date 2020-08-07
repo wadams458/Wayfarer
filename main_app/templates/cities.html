@@ -6,31 +6,32 @@
 
 {% block content %}
 <div class="row" id="container">
-  <div class="col-6">
+  <div class="col-5">
     <div class="city-container">
       <h1>Cities</h1>
       {% for city in cities %}
       
       <a href="{% url 'cities' city.id %}">
         <button class="cities-btn {% if selected_city.id == city.id %} active {% endif %}">
-          <img src="{% static city.img %}" class="card-img" alt="Placeholder image">
-          <h3 class="card-title">
+          <img src="{{ city.img.url }}" class="card-img" alt="Placeholder image">
+          <h4 class="card-title">
             {{city.name}}
-          </h3>
+          </h4>
         </button>
       </a>
       {% endfor %}
     </div>
   </div>
-  <div class="col-6">
+  <div class="col-7">
     <div class="post-container">
       <div class="post-header">
         <div class="city-title">
           <h3>{{selected_city.name}}</h3>
-          <h5>{{selected_city.country}}</h3>
+          <h5 class="country">{{selected_city.country}}</h3>
         </div>
-        <img class="city-img" src="{% static selected_city.img %}" alt="city">
+        <img class="city-img" src="{{ selected_city.img.url }}" alt="city">
       </div>
+      <hr class="divider">
       <div>
         <div class="post-subheader">
           <h3>Posts</h3>
