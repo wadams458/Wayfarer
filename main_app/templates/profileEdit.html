@@ -29,3 +29,21 @@
 
 
 {% endblock %}
+
+
+{% for field in login_form %}
+                <div class="input-group form-group">
+			    	  	<div class="input-group-prepend">
+			    	  		<span class="input-group-text"><i class="fa {% if field.html_name == "username" %}fa-user{% else %}fa-key{% endif %}"></i></span>
+			    	  	</div>
+                    <input class="form-control" id="{{ field.id_for_label }}" maxlength="150" 
+                           name="{{ field.html_name }}" placeholder="{{ field.html_name }}" 
+                           {% if "password" in field.html_name %} type="password" {% else %} type="text" {% endif %} 
+                    />
+                    {{ field.errors }}
+                </div>
+              {% endfor %}
+
+
+
+  

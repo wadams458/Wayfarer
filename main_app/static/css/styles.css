@@ -1,5 +1,5 @@
-:root{
-    --primary: #9A031E;
+:root {
+  --primary: #9a031e;
 }
 
 body{
@@ -28,14 +28,14 @@ body{
   border-color: transparent;
 }
 
-.btn-primary:active{
-    background-color: #FB8B24;
-    border-color: transparent;
+.btn-primary:active {
+  background-color: #fb8b24;
+  border-color: transparent;
 }
 
-.btn-primary:focus{
-    background-color: #FB8B24;
-    border-color: transparent;
+.btn-primary:focus {
+  background-color: #fb8b24;
+  border-color: transparent;
 }
 
 /* ----------- Navigation Section --------------*/
