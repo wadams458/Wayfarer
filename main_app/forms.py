@@ -11,3 +11,9 @@ class UserForm(forms.ModelForm):
   class Meta:
     model = User
     fields = ['first_name', 'last_name']
+
+
+class PostForm(forms.ModelForm):
+  class Meta:
+    model = Post
+    fields = ['title', 'body', 'img', 'city']
