@@ -4,6 +4,10 @@
   <link rel="stylesheet" href="{% static 'css/post.css' %}">
 {% endblock %}
 {% block content %}
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock %}
+
 <div class="container">
     <div class="row">
         <div class="col-lg-8">
@@ -27,13 +31,13 @@
             <h3 class="mt-4">{{post.city.name}}</h3>
 
             <!-- Author -->
-            <p class="lead">
+            <div class="lead">
               by
-              <a href="profile">{{post.user.first_name}} {{post.user.last_name}}</a>
+              <a href="profile">{{post.user.first_name}} {{post.user.last_name}}</a> in {{post.city.name}}
               <br>
               <!-- Date/Time -->
               Posted on {{post.created_at}}
-            </p>
+            </div>
 
             <hr>
 
