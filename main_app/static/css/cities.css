@@ -141,7 +141,10 @@ a:hover {
   border-color: transparent;
   height: 42px;
   width: 42px;
-  font-size: 24px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .post-button:hover{
