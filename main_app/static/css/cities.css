@@ -1,0 +1,162 @@
+*{
+  box-sizing: border-box;
+}
+
+.navbar{
+  background-color:#ffffff;
+}
+
+body{
+  background-color: #EDF2F4;
+}
+#container {
+  margin-bottom: 24px;
+}
+
+.row{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* ----------- Cities SECTION -------------*/
+.posts{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.cities-btn {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  align-items: center;
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid;
+  border-color: transparent;
+  flex-wrap: wrap; 
+  background-color: #EDF2F4;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 2px 8px 0 rgba(0,0,0,0.2);
+}
+
+.cities-btn.active  {
+  box-shadow: 0 4px 8px 0 rgba(217, 4, 41,0.2), 0 3px 10px 0 rgba(217, 4, 41, 0.19)
+}
+
+.cities-btn:hover {
+  box-shadow: 0 4px 8px 0 rgba(217, 4, 41,0.2), 0 3px 10px 0 rgba(217, 4, 41, 0.19)
+}
+
+.cities-btn.card-title:hover{
+  color: #EF233C;
+}
+
+.card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.city-container {
+  padding: 18px;
+  border-radius: 8px;
+  margin: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  background-color: #ffffff;
+  height: 98%;
+}
+
+.card-img {
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.card-title{
+  margin-left: 16px;
+  margin-bottom: 0px;
+}
+
+/* ----------- POST SECTION -------------*/
+.post-header{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.city-img {
+  width: 100%;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.country{
+  opacity: 80%;
+}
+
+.divider{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.post-container {
+  padding: 18px;
+  border-radius: 8px;
+  margin: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  height: 98%;
+  background-color: #ffffff;
+}
+
+.post-img {
+  width: 100%;
+  height: 100%;
+}
+
+.post-subheader{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.post-button{
+  border-radius: 100%;
+  background-color: #D90429;
+  color: #ffffff;
+  border-color: transparent;
+  height: 42px;
+  width: 42px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-button:hover{
+  background-color: #EF233C;
+}
+.post-button:active{
+  background-color: #EF233C;
+}
+.post-button:focus{
+  background-color: #EF233C;
+}
+
+.post.card{
+  border-radius: 8px;
+}
