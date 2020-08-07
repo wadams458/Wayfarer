@@ -7,9 +7,10 @@
 
 {% block content %}
 <section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col">
+  <div class="profile-container">
+    <div class="container">
+    {% comment %} <div class="row"> {% endcomment %}
+      {% comment %} <div class="col" style="width=100vw"> {% endcomment %}
         <h1 class="title">Profile</h1>
         <div class="profile">
           <img id="profile-picture" class="img-fluid" src="{{ profile.img.url }}">
@@ -21,9 +22,12 @@
             <p> Date Joined: {{profile.user.date_joined}}</p>
             <a href="{% url 'profile_edit' %}">Edit Profile</a>
           </div>
+          </div>
         </div>
-      </div>
+      {% comment %} </div> {% endcomment %}
+    {% comment %} </div> {% endcomment %}
     </div>
+    <div class="container">
     <div class="row">
       <div class="col">
         <div class="posts">
@@ -63,6 +67,7 @@
           </div>
           {% endfor %}
           {% endif %}
+      </div>
       </div>
     </div>
   </div>
