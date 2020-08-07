@@ -1,3 +1,53 @@
 body {
     background: radial-gradient(circle at 100px 100px, rgb(247, 197, 103), rgb(205, 119, 199));
 }
+
+.mask {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0, 0.26);
+  }
+
+.prompt-mask {
+    display: none;
+    cursor: pointer;
+  }
+  .prompt-mask.show {
+    display: flex;
+  }
+  
+  .alert-mask {
+    display: none;
+    cursor: pointer;
+  }
+  .alert-mask.show {
+    display: flex;
+  }
+  
+  .prompt {
+    position: relative;
+    cursor: default;
+    background-color: rgb(241, 241, 241);
+    border-radius: 20px;
+    text-align: center;
+    width: 500px;
+    height: 140px;
+    box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.26);
+  }
+  .prompt h4 {
+    margin: 5px;
+  }
+  .prompt-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  .prompt-cancel-btn {
+    margin-top: -5px;
+    margin-left: 10px;
+  }

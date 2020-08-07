@@ -39,4 +39,43 @@
         </div>
     </div>
 </div>
+
+
+<div class="mask prompt-mask show">
+  <div class="prompt">
+    <h4>Are you sure you want to delete "<%= task.name %>"?</h4>
+    <div class="prompt-buttons">
+      
+      <form style="display: inline;" action="/tasks/<%= project_id %>/<%= task._id %>?_method=DELETE" method="POST">
+          <button class="btn btn-danger">Yes</button>        </form>
+      <button class="btn btn-primary prompt-cancel-btn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+    function findElement(query, isMulti = false) {
+        return (!isMulti) ?
+                document.querySelector(query) :
+                document.querySelectorAll(query);
+    }
+
+    if(findElement('.prompt-mask') !== null) {
+        findElement('.prompt-mask').addEventListener('click', (e) => {
+            if (e.target !== findElement('.prompt-mask')) return;
+            findElement('.prompt-mask').classList.remove('show');   
+        })
+    }
+    if(findElement('.delete-btn') !== null) {
+        findElement('.delete-btn').addEventListener('click', () =>{
+            findElement('.prompt-mask').classList.add('show');   
+        })
+    }
+    if(findElement('.prompt-cancel-btn') !== null) {
+        findElement('.prompt-cancel-btn').addEventListener('click', (e) => {
+            findElement('.prompt-mask').classList.remove('show');   
+        })
+    }
+</script>
+
 {% endblock %}
