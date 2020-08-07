@@ -1,0 +1,103 @@
+#carouselExampleInterval {
+  height: 50vh;
+  overflow: hidden;
+}
+
+body {
+  background: radial-gradient(
+    circle at 100px 100px,
+    rgb(236, 60, 6),
+    rgb(230, 28, 28)
+    
+  );
+}
+
+/* ----------- Profile Section --------------*/
+/* 
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profile-body {
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+}
+
+#profile-picture {
+  margin-bottom: 16px;
+} */
+
+/* ----------- Post Section --------------*/
+
+/* .posts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+} */
+
+/* .card {
+  margin-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+} */
+
+.card-deck {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+}
+.card-img-top {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 25px;
+  background-color: #ef233c;
+}
+
+.card-header {
+  font-size: 25px;
+  margin: 15px;
+  background-color: #ef233c;
+}
+
+.card-footer {
+  margin: 15px;
+  font-size: 25px;
+  background-color: #ef233c;
+  font
+}
+
+.card-footer2 {
+  margin: 30px;
+  font-size: 40px;
+}
+
+.carousel-inner {
+  height: 600px;
+  width: 100%;
+  object-fit: cover;
+  display: flex;
+  border-radius: 5%;
+}
+
+.card-text {
+}
+
+.carousel-img {
+  height: 100%;
+}
