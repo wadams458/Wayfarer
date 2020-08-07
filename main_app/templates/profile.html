@@ -12,7 +12,7 @@
       <div class="col">
         <h1 class="title">Profile</h1>
         <div class="profile">
-          <img id="profile-picture" class="img-fluid" src="{% static profile.img %}">
+          <img id="profile-picture" class="img-fluid" src="{{ profile.img.url }}">
           <div class="profile-body">
             <p class="name">Username: {{profile.user.username}}</p>
             <p class="name">Name: {{profile.user.first_name}} {{profile.user.last_name}}
