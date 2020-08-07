@@ -64,10 +64,12 @@ def post_edit(request, post_id):
       form = PostForm(instance=post)
     return render(request, 'posts/post_edit.html', {'form': form})
 
-# @login_required
-# def post_delete(request, post_id):
-#   Post.objects.get(id=post_id).delete()
-#   return redirect('cities' 1)
+@login_required
+def post_delete(request, post_id):
+  post = Post.objects.get(id=post_id)
+  city_id = post.city.id
+  post.delete()
+  return redirect('cities', city_id)
 
 # ------------------- PROFILE -------------------
 
