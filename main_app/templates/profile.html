@@ -12,7 +12,7 @@
       <div class="col">
         <h1 class="title">Profile</h1>
         <div class="profile">
-          <img id="profile-picture" class="img-fluid" src="{% static profile.img %}">
+          <img id="profile-picture" class="img-fluid" src="{{ profile.img.url }}">
           <div class="profile-body">
             <p class="name">Username: {{profile.user.username}}</p>
             <p class="name">Name: {{profile.user.first_name}} {{profile.user.last_name}}
@@ -44,9 +44,9 @@
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-2">
-                <img src="{% static post.img %}" class="card-img" alt="Placeholder image">
+                <img src="{{ post.img.url }}" class="card-img" alt="Placeholder image">
               </div>
-              <div class="col-md-8">
+              <div class="col-md-8" style="width: 100%">
                 <div class="card-body">
                   <h5 class="card-title">
                     <a href="{% url 'post' post.id %}">

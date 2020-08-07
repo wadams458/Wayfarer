@@ -1,7 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .models import Post, Profile, City
-from .forms import ProfileForm, UserForm
+from .forms import ProfileForm, UserForm, PostForm
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 # Create your views here.
@@ -15,7 +16,7 @@ def home(request):
     return render(request, 'home.html', context)
 
 
-# ------------------- CITIES/POSTS -------------------
+# ------------------- CITIES -------------------
 
 def cities(request, city_id):
     cities = City.objects.all()
@@ -26,16 +27,49 @@ def cities(request, city_id):
     }
     return render(request, 'cities.html', context)
 
+
+# ------------------- POSTS -------------------
+
 def post(request, post_id):
     post = Post.objects.get(id=post_id)
     context = {
         'post': post
     }
-    return render(request, 'post.html', context)
+    return render(request, 'posts/post.html', context)
 
+@login_required
+def post_add(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        new_post = form.save(commit=False)
+        new_post.user = request.user
+        new_post.save()
+
+        return redirect('post', new_post.id)
+    else:
+      form = PostForm()
+      return render(request, 'posts/post_add.html', {'form': form})
+
+@login_required
+def post_edit(request, post_id):
+    post = Post.objects.get(id=post_id)
+    if request.method == 'POST':
+      form = PostForm(request.POST, request.FILES, instance=post)
+      if form.is_valid():
+        post = form.save()
+        return redirect('post', post.id)
+    else:
+      form = PostForm(instance=post)
+    return render(request, 'posts/post_edit.html', {'form': form})
+
+# @login_required
+# def post_delete(request, post_id):
+#   Post.objects.get(id=post_id).delete()
+#   return redirect('cities' 1)
 
 # ------------------- PROFILE -------------------
 
+@login_required
 def profile(request):
     profile = Profile.objects.get(user=request.user.id)
     posts = Post.objects.filter(user=request.user.id)
@@ -45,11 +79,12 @@ def profile(request):
     }
     return render(request, 'profile.html', context)
 
+@login_required
 def edit_profile(request):
     profile = Profile.objects.get(user=request.user.id)
     user = request.user
     if request.method == 'POST':
-      profile_form = ProfileForm(request.POST, instance=profile)
+      profile_form = ProfileForm(request.POST, request.FILES, instance=profile)
       user_form = UserForm(request.POST, instance=user)
 
       if profile_form.is_valid() and user_form.is_valid():
