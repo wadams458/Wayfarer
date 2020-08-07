@@ -1,0 +1,110 @@
+#container {
+  margin-bottom: 24px;
+}
+
+/* ----------- Cities SECTION -------------*/
+.posts{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.cities-btn {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  align-items: center;
+  width: 100%;
+  border-radius: 8px;
+  border-color: transparent;
+  flex-wrap: wrap;
+}
+
+.cities-btn:hover{
+
+}
+
+.cities-btn.active  {
+  background-color: red;
+}
+
+.card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.city-container {
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 8px;
+  margin: 8px;
+  background-color: #777777;
+  height:100%;
+}
+
+.card-img {
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.card-title{
+  margin-left: 24px;
+  margin-bottom: 0px;
+}
+/* ----------- POST SECTION -------------*/
+.post-header{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.city-img {
+  width: 100%;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.post-container {
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 8px;
+  margin: 8px;
+  height:100%;
+}
+
+.post-img {
+  width: 100%;
+  height: 100%;
+}
+
+.post-subheader{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.post-button{
+  border-radius: 100%;
+  background-color: #9a031e;
+  color: #ffffff;
+  border-color: transparent;
+  height: 42px;
+  width: 42px;
+  font-size: 24px;
+}
+
+.post-button:hover{
+  background-color: #fb8b24;
+}
+.post-button:active{
+  background-color: #fb8b24;
+}
+.post-button:focus{
+  background-color: #fb8b24;
+}
