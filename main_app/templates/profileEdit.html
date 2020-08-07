@@ -6,4 +6,26 @@
   {{ profile_form.as_p }}
   <button type="submit">Save</button>
 </form>
+
+<h1>TEST {{user_form.first_name.html_name}}</h1>
+<input class="form-control" id="{{ field.id_for_label }}" maxlength="150" name="{{ user_form.first_name.html_name }}" placeholder="First Name"/> 
+
+
+
+
+{% for field in profile_form %}
+  <div class="input-group form-group">
+	<div class="input-group-prepend">
+		<span class="input-group-text"><i class="fa {% if field.html_name == "username" %}fa-user{% else %}fa-key{% endif %}"></i></span>
+	</div>
+      <input class="form-control" id="{{ field.id_for_label }}" maxlength="150" name="{{ field.html_name }}" 
+             {% if "password1" == field.html_name %} placeholder="password" 
+             {% elif "password2" == field.html_name %} placeholder="confirm password" {% else %} placeholder="{{field.html_name}}" {% endif %}
+             {% if "password" in field.html_name %} type="password" {% else %} type="text" {% endif %} 
+      /> 
+      {{ field.errors }}
+  </div>
+{% endfor %}
+
+
 {% endblock %}

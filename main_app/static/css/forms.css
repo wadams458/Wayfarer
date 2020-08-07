@@ -58,6 +58,7 @@ input:focus{
     color: black;
     background-color: red;
     width: 100px;
+    margin-top: 10px;
 }
     
 .login_btn:hover{
@@ -67,6 +68,8 @@ input:focus{
     
 .links{
     color: white;
+    margin-top: 30px;
+    margin-left: -100px;
 }
     
 .links span{
@@ -76,4 +79,8 @@ input:focus{
 .links span:hover{
     cursor: pointer;
     text-decoration: underline;
+}
+
+.picture {
+    height: 1000px;
 }
