@@ -21,9 +21,11 @@ def home(request):
 def cities(request, city_id):
     cities = City.objects.all()
     posts = Post.objects.filter(city=city_id).order_by('-created_at')
+    selected_city = City.objects.get(id=city_id)
     context = {
         'cities': cities,
-        'posts': posts
+        'posts': posts,
+        'selected_city': selected_city,
     }
     return render(request, 'cities.html', context)
 
@@ -62,10 +64,12 @@ def post_edit(request, post_id):
       form = PostForm(instance=post)
     return render(request, 'posts/post_edit.html', {'form': form})
 
-# @login_required
-# def post_delete(request, post_id):
-#   Post.objects.get(id=post_id).delete()
-#   return redirect('cities' 1)
+@login_required
+def post_delete(request, post_id):
+  post = Post.objects.get(id=post_id)
+  city_id = post.city.id
+  post.delete()
+  return redirect('cities', city_id)
 
 # ------------------- PROFILE -------------------
 
@@ -127,3 +131,4 @@ def signup(request):
     login_form = AuthenticationForm()
     context = {'signup_form': signup_form, 'login_form': login_form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+

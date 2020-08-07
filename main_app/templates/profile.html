@@ -34,7 +34,9 @@
           <h2 class="subtitle">
             {{profile.user.username}}'s Posts
           </h2>
-          <button type="button" class="btn btn-primary">Create Post</button>
+          <a href="{% url 'post_add' %}">
+            <button type="button" class="btn btn-primary">Create Post</button>
+          </a>
         </div>
         <!-- Card Post -->
         {% if not posts  %}

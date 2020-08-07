@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock %}
 {% block content %}
 {% block extra_head %}
   <link rel="stylesheet" href="{% static 'css/post.css' %}">
@@ -8,14 +11,25 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8">
-            <!-- Title -->
-            <h1 class="mt-4">{{post.title}}</h1>
-            
-            <!-- Preview Image -->
-            <img class="img-fluid rounded" src="{{ post.img.url }}" alt="">
-            
-            <hr>
-            
+            <div class="post-title-header">
+                <!-- Title -->
+                <h1>{{post.title}}</h1> 
+                <div class="action-btns">
+                    <a href="{% url 'post_edit' post.id%}">
+                        <button class="post-button">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </button>
+                    </a>
+                    <a href="{% url 'post_delete' post.id %}">
+                        <button class="post-button">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </button>
+                </div>
+                <!-- Post Button -->
+                </a>
+            </div>
+            <h3 class="mt-4">{{post.city.name}}</h3>
+
             <!-- Author -->
             <div class="lead">
               by
@@ -27,15 +41,15 @@
 
             <hr>
 
-        </div>
-    </div>
-</div>
+            <!-- Preview Image -->
+            <img class="img-fluid rounded" src="{{ post.img.url }}" alt="">
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8">
+            <hr>
+            
             <!-- Post Content -->
             <p>{{post.body}}</p>
+
+           
         </div>
     </div>
 </div>
