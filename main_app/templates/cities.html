@@ -29,18 +29,20 @@
           <h3>{{selected_city.name}}</h3>
           <h5>{{selected_city.country}}</h3>
         </div>
-        <img class="city-img" src="https://picsum.photos/200" alt="city">
+        <img class="city-img" src="{% static selected_city.img %}" alt="city">
       </div>
       <div>
         <div class="post-subheader">
           <h3>Posts</h3>
-          <button class="post-button">+</button>
+          <a href="{% url 'post_add' %}">
+            <button class="post-button">+</button>
+          </a>
         </div>
         {% for post in posts %}
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <img src="{% static post.img %}" class="post-img" alt="Placeholder image">
+                <img src="{{ post.img.url }}" class="post-img" alt="Placeholder image">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
