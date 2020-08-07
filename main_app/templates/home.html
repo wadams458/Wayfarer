@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
- {% block extra_head %}<link rel="stylesheet" href="{% static 'css/styles.css' %}">{% endblock %}
+ {% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  
+{% endblock %}
 {% block content %}
 
+
  <!-- Carousel -->
-
-
 
  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -15,13 +17,13 @@
   </ol>
   <div class="carousel-inner carousel-fade">
     <div class="carousel-item active" data-interval="10000">
-      <img src="{% static 'images/airport.jpg'%}" class="d-block w-100" alt="...">
+      <img src="{% static 'images/SanFran.jpg'%}" class="d-block carousel-img w-100" alt="...">
     </div>
     <div class="carousel-item carousel-fade" data-interval="10000">
-      <img src="{% static 'images/flight.jpg'%}" class="d-block w-100" alt="...">
+      <img src="{% static 'images/London.jpg'%}" class="d-block carousel-img w-100" alt="...">
     </div>
     <div class="carousel-item carousel-fade" data-interval="10000">
-      <img src="{% static 'images/map.jpg'%}" class="d-block w-100" alt="...">
+      <img src="{% static 'images/Gibralter.jpg'%}" class="d-block carousel-img w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -33,9 +35,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
- 
- 
-<!-- End Carousel -->
+ <!-- End Carousel -->
 
 <!--Wayfarer Card-->
 
@@ -48,7 +48,7 @@
     <p class="card-text">Wayfarer is a travel community that serves to both answer questions and inspire travelers. It's a place to read and submit opinions, get advice on travel-related subjects, and browse for ideas, tips, and answers to questions you didn't even know you had.</p>
     {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
   </div>
-  <div class="card-footer text-muted">
+  <div class="card-footer ">
     Happy Exploring!
   </div>
   <div class="card-footer2 text-muted">
@@ -56,72 +56,25 @@
 </div>
 <!--End Wayfarer Card-->
 
-{% comment %} <h1>Wayfarer is a travel community that serves to both answer questions and inspire travelers. It's a place to read and submit opinions, get advice on travel-related subjects, and browse for ideas, tips, and answers to questions you didn't even know you had. </h1> {% endcomment %}
-{% comment %} <div class="row">
-  <div class="col">
-    <h2>Topic</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa enim sit id at labore nam tempora excepturi? Velit, cupiditate magnam fugit sapiente nisi iure dolores aspernatur quam perferendis quis ea.</p>
-  </div>
-  <div class="col">
-    <h2>Topic</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa enim sit id at labore nam tempora excepturi? Velit, cupiditate magnam fugit sapiente nisi iure dolores aspernatur quam perferendis quis ea.</p>
-  </div>
-  <div class="col">
-    <h2>Topic</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa enim sit id at labore nam tempora excepturi? Velit, cupiditate magnam fugit sapiente nisi iure dolores aspernatur quam perferendis quis ea.</p>
-  </div>
-</div> {% endcomment %}
 
 <br>
+
 <!--Recent Upload-->
 <div class="card-deck">
-  <div class="card" id="home-card">
-    <img class="card-img-top" src="{% static 'images/Croatia.jpg'%}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Tokyo, Japan</h5>
-      <p class="card-text">Tokyo, Japan’s busy capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples. The opulent Meiji Shinto Shrine is known for its towering gate and surrounding woods. The Imperial Palace sits amid large public gardens.</p>
-      <p class="card-text"><small class="text-muted">Wednesday July 29, 2020</small></p>
-    </div>
-  </div>
+{% for post in posts %}
   <div class="card">
-    <img class="card-img-top" src="{% static 'images/Austin.jpg'%}" alt="Card image cap">
+    <img class="card-img-top" src="{{ post.img.url }}" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">Austin, Texas</h5>
-      <p class="card-text">Austin is the state capital of Texas, an inland city bordering the Hill Country region. Home to the University of Texas flagship campus, Austin is known for its eclectic live-music scene centered around country, blues and rock. </p>
-      <p class="card-text"><small class="text-muted">Wednesday July 22, 2020</small></p>
+      <h5 class="card-title"> {{ post.title }}</h5>
+      <p class="card-text">{{ post.body }}</p>
+      <p class="card-text"><small class="text-muted">{{post.created_at}} </small></p>
     </div>
   </div>
-  <div class="card">
-    <img class="card-img-top" src="{% static 'images/Tokyo.jpg'%}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Zagreb, Croatia</h5>
-      <p class="card-text">Croatia, officially the Republic of Croatia, is a country in Southeast Europe. It borders Slovenia to the northwest, Hungary to the northeast, Serbia to the east, Bosnia and Herzegovina, and Montenegro to the southeast, sharing a maritime border with Italy.</p>
-      <p class="card-text"><small class="text-muted">Wednesday July 15,2020 </small></p>
-    </div>
-  </div>
+{% endfor %}
 </div>
 
 
-{% for post in posts %}
-          <div class="card mb-3">
-            <div class="row no-gutters">
-              <div class="col-md-2">
-                <img src="{% static post.img %}" class="card-img" alt="Placeholder image">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <a href="{% url 'post' post.id %}">
-                      {{ post.title }}
-                    </a>
-                  </h5>
-                  <p class="card-text">{{ post.body }}</p>
-                  <a href="{% url 'post' post.id %}" class="card-link">View Post</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
+
 
 
 
