@@ -9,20 +9,81 @@
 
 
 {% comment %} {% for post in posts %} {% endcomment %}
-        <div class="card mb-3" style="max-width: 540px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="..." class="card-img" alt="...">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Horizontal Card Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .bcontent {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container bcontent">
+        <h2>~~About Team Rocket~~</h2>
+        <hr />
+        <div class="card" style="width: 500px;">
+            <div class="row no-gutters">
+                <div class="col-md-2">
+                    <img class="card-img" src="/images/pokemon.jpg" >
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Meowth</h5>
+                        <p class="card-text">MEEEEOoowth</p>
+                        {% comment %} <a href="#" class="btn btn-primary">View Profile</a> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
+    <div class="container bcontent">
+        
+        <hr />
+        <div class="card" style="width: 500px;">
+            <div class="row no-gutters">
+                <div class="col-md-2">
+                    <img class="card-img" src="/images/defaultimg.png" >
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Jesse</h5>
+                        <p class="card-text">TEAM ROCKET!</p>
+                        {% comment %} <a href="#" class="btn btn-primary">View Profile</a> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+    <div class="container bcontent">
+        
+        <hr />
+        <div class="card" style="width: 500px;">
+            <div class="row no-gutters">
+                <div class="col-md-2">
+                    <img class="card-img" src="/images/defaultimg.png" >
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">James</h5>
+                        <p class="card-text">TEAM ROCKET!</p>
+                        {% comment %} <a href="#" class="btn btn-primary">View Profile</a> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
 {% comment %} {% endfor %} {% endcomment %}
 
 
