@@ -44,9 +44,9 @@
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-2">
-                <img src="{% static post.img %}" class="card-img" alt="Placeholder image">
+                <img src="{{ post.img.url }}" class="card-img" alt="Placeholder image">
               </div>
-              <div class="col-md-8">
+              <div class="col-md-8" style="width: 100%">
                 <div class="card-body">
                   <h5 class="card-title">
                     <a href="{% url 'post' post.id %}">
