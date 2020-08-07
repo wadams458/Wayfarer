@@ -23,9 +23,14 @@
             <img class="img-fluid rounded" src="{{ post.img.url }}" alt="">
 
             <hr>
-
+            
             <!-- Post Content -->
             <p>{{post.body}}</p>
+
+            <!-- Post Button -->
+            <a href="{% url 'post_edit' post.id%}">
+                <button>Edit Post</button>
+            </a>
         </div>
     </div>
 </div>
