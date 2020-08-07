@@ -7,25 +7,13 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8">
-            <div class="post-title-header">
+           
                 <!-- Title -->
                 <h1>{{post.title}}</h1> 
-                <div class="action-btns">
-                    <a href="{% url 'post_edit' post.id%}">
-                        <button class="post-button">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </button>
-                    </a>
-                    <a href="{% url 'post_delete' post.id %}">
-                        <button class="post-button">
-                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        </button>
-                </div>
-                <!-- Post Button -->
-                </a>
-            </div>
+                
+            
             <h3 class="mt-4">{{post.city.name}}</h3>
-
+            <div class="post-title-header">
             <!-- Author -->
             <p class="lead">
               by
@@ -34,7 +22,20 @@
               <!-- Date/Time -->
               Posted on {{post.created_at}}
             </p>
-
+            <!-- Post Button -->
+            <div class="action-btns">
+                <a href="{% url 'post_edit' post.id%}">
+                    <button class="edit-button">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                </a>
+                <a href="{% url 'post_delete' post.id %}">
+                    <button class="delete-button">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </button>
+                </a>
+            </div>
+        </div>
             <hr>
 
             <!-- Preview Image -->
