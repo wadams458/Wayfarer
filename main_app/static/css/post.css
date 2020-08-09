@@ -33,6 +33,11 @@ body {
   margin-left: 16px;
 }
 
+.delete-button:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
 
 .edit-button{
   border-radius: 100%;
@@ -47,6 +52,9 @@ body {
   align-items: center;
   margin-left: 16px;
 }
+.edit-button:hover {
+    color: black;
+}
 
 .check-button {
     border-radius: 100%;
@@ -60,6 +68,9 @@ body {
     justify-content: center;
     align-items: center;
     margin-left: 16px;
+}
+.check-button:hover {
+    color: black;
 }
 
 #id_body {
