@@ -78,9 +78,13 @@ def post_delete(request, post_id):
 # ------------------- PROFILE -------------------
 
 @login_required
-def profile(request):
-    profile = Profile.objects.get(user=request.user.id)
-    posts = Post.objects.filter(user=request.user.id)
+def my_profile(request):
+    return redirect('profile', request.user.id)
+
+@login_required
+def profile(request, user_id):
+    profile = Profile.objects.get(user=user_id)
+    posts = Post.objects.filter(user=profile.user.id)
     context = {
         'profile': profile,
         'posts': posts
@@ -88,8 +92,8 @@ def profile(request):
     return render(request, 'profile.html', context)
 
 @login_required
-def edit_profile(request):
-    profile = Profile.objects.get(user=request.user.id)
+def edit_profile(request, user_id):
+    profile = Profile.objects.get(user=user_id)
     user = request.user
     if request.method == 'POST':
       profile_form = ProfileForm(request.POST, request.FILES, instance=profile)
@@ -98,7 +102,7 @@ def edit_profile(request):
       if profile_form.is_valid() and user_form.is_valid():
         profile = profile_form.save()
         user = user_form.save()
-        return redirect('profile')
+        return redirect('profile', user.id)
     else:
       # Create Form
       profile_form = ProfileForm(instance=profile)
@@ -127,7 +131,7 @@ def signup(request):
         Profile.objects.create(user=user)
         # This is how we log a user in via code
         login(request, user)
-        return redirect('profile')
+        return redirect('profile', user.id)
       else:
         error_message = 'Invalid sign up - try again'
     # A bad POST or a GET request, so render signup.html with an empty form

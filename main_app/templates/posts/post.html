@@ -13,7 +13,7 @@
             <!-- Author -->
             <div class="lead">
                 by
-                <a href="profile">{{post.user.first_name}} {{post.user.last_name}}</a> in <a href="{% static 'cities' post.city.id %}"> {{post.city.name}} </a>
+                <a href="{% url 'profile' post.user.id %}">{{post.user.first_name}} {{post.user.last_name}}</a> in <a href="{% static 'cities' post.city.id %}"> {{post.city.name}} </a>
                 <br>
                 <div class="post-title-header">
                     <!-- Date/Time -->

@@ -20,7 +20,7 @@
             </p>
             <p>City: {{profile.city}}</p>
             <p> Date Joined: {{profile.user.date_joined}}</p>
-            <a href="{% url 'profile_edit' %}">Edit Profile</a>
+            <a href="{% url 'profile_edit' user.id %}">Edit Profile</a>
           </div>
           </div>
         </div>
