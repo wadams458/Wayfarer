@@ -2,6 +2,13 @@ body {
     background: radial-gradient(circle at 100px 100px, rgb(247, 197, 103), rgb(205, 119, 199));
 }
 
+.row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .post-title-header{
   display: flex;
   justify-content: space-between;
@@ -41,6 +48,40 @@ body {
   margin-left: 16px;
 }
 
+.check-button {
+    border-radius: 100%;
+    background-color: green;
+    color: #ffffff;
+    border-color: transparent;
+    height: 42px;
+    width: 42px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 16px;
+}
+
+#id_body {
+    width: 100%;
+    height: 100%;
+}
+
+.textarea {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    resize: both;
+    min-height: 40px;
+    line-height: 20px;
+    background-color: white;
+    border: 1px solid;
+    padding: 2px;
+  }
+
+
+/* ------- PROMPT ------ */
+
 .mask {
     position: absolute;
     top: 0;
@@ -60,14 +101,6 @@ body {
     display: flex;
   }
   
-  .alert-mask {
-    display: none;
-    cursor: pointer;
-  }
-  .alert-mask.show {
-    display: flex;
-  }
-  
   .prompt {
     position: relative;
     cursor: default;
@@ -82,11 +115,11 @@ body {
     margin: 5px;
   }
   .prompt-buttons {
-    margin-top: 15px;
+    margin-top: 25px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
   }
-  .prompt-cancel-btn {
-    margin-top: -5px;
+
+  .cancel-btn {
     margin-left: 10px;
   }

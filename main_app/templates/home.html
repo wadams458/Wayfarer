@@ -39,14 +39,13 @@
 
 <!--Wayfarer Card-->
 
-<div class="card text-center">
+<div class=" text-center">
   <div class="card-header">
     Wayfarer
   </div>
   <div class="card-body">
     <h5 class="card-title"></h5>
-    <p class="card-text">Wayfarer is a travel community that serves to both answer questions and inspire travelers. It's a place to read and submit opinions, get advice on travel-related subjects, and browse for ideas, tips, and answers to questions you didn't even know you had.</p>
-    {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
+    <p class="card-text col-lg-6 greeting">Wayfarer is a travel community that serves to both answer questions and inspire travelers. It's a place to read and submit opinions, get advice on travel-related subjects, and browse for ideas, tips, and answers to questions you didn't even know you had.</p>
   </div>
   <div class="card-footer ">
     Happy Exploring!
@@ -62,14 +61,16 @@
 <!--Recent Upload-->
 <div class="card-deck">
 {% for post in posts %}
-  <div class="card">
-    <img class="card-img-top" src="{{ post.img.url }}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"> {{ post.title }}</h5>
-      <p class="card-text">{{ post.body }}</p>
-      <p class="card-text"><small class="text-muted">{{post.created_at}} </small></p>
+    <div class="card">
+  <a href="{% url 'post' post.id%}">
+      <img class="card-img-top" src="{{ post.img.url }}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"> {{ post.title }}</h5>
+        <p><small class="text-muted">{{post.created_at}} </small></p>
+        <p class="card-text">{{ post.body }}</p>
+      </div>
+  </a>
     </div>
-  </div>
 {% endfor %}
 </div>
 

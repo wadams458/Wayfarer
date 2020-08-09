@@ -12,7 +12,7 @@ body {
   background: linear-gradient(to left, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: whitesmoke;  
   padding: 20px 0 10px 0;
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 
 /* ----------- Profile Section --------------*/
@@ -64,10 +64,10 @@ body {
 }
 
 @media only screen and (min-width: 992px) {
-  .card-img {
-    width: 100%;
-    max-height: 200px;
-    object-fit: cover;
+ .card-img {
+    max-width: 200px;
+    max-height: 150px;
+    object-fit: contain;
   }
   
   .card-text {

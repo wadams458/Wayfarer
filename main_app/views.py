@@ -66,7 +66,7 @@ def post_edit(request, post_id):
         return redirect('post', post.id)
     else:
       form = PostForm(instance=post)
-    return render(request, 'posts/post_edit.html', {'form': form})
+    return render(request, 'posts/post_edit.html', {'form': form, 'post': post})
 
 @login_required
 def post_delete(request, post_id):

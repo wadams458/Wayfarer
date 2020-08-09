@@ -7,14 +7,13 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-xs-12 col-lg-10">
             <!-- Title -->
-            <h1>{{post.title}}</h1> 
-            <h3 class="mt-4">{{post.city.name}}</h3>
+            <h3 class="mt-4">{{post.title}}</h3>
             <!-- Author -->
             <div class="lead">
                 by
-                <a href="profile">{{post.user.first_name}} {{post.user.last_name}}</a> in {{post.city.name}}
+                <a href="profile">{{post.user.first_name}} {{post.user.last_name}}</a> in <a href="{% static 'cities' post.city.id %}"> {{post.city.name}} </a>
                 <br>
                 <div class="post-title-header">
                     <!-- Date/Time -->
@@ -22,14 +21,15 @@
                     </p>
                     <!-- Post Button -->
                     <div class="action-btns">
+                        <button class="delete-button">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </button>
+
                         <a href="{% url 'post_edit' post.id%}">
                         <button class="edit-button">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </button>
                         </a>
-                        <button class="delete-button">
-                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        </button>
                     </div>
                 </div>
                 <hr>

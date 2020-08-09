@@ -11,6 +11,9 @@ body{
   min-height: 100%;
   padding-bottom: 100px;
   margin-bottom: -50px;
+  background: #8e9eab;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .logo {
@@ -64,70 +67,6 @@ nav.navbar {
   height: 50vh;
   overflow: hidden;
 }
-
-/* ----------- Profile Section --------------*/
-/* 
-.profile {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.profile-body {
-  display: flex;
-  flex-direction: column;
-  margin-left: 16px;
-}
-
-#profile-picture {
-  margin-bottom: 16px;
-} */
-
-/* ----------- Post Section --------------*/
-
-/* .posts {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-} */
-
-/* .card {
-  margin-bottom: 70px;
-  display: flex;
-  flex-direction: column;
-}
-
-.card-body {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-} */
-
-/* .card-deck {
-  margin-bottom: 16px;
-  display: flex;
-  flex-direction: row;
-}
-.card-img-top {
-  display: flex;
-  flex-direction: column;
-  height: 300px;
-}
-
-h1 {
-  font-size: 25px;
-}
-
-.card-header {
-  font-size: 40px;
-}
-
-.carousel-inner {
-  height: 400px;
-  display: flex;
-} */
 
 .footer {
   width: 100%;
