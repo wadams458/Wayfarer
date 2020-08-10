@@ -7,48 +7,52 @@
 {% block content %}
 
 
- <!-- Carousel -->
-
- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner carousel-fade">
-    <div class="carousel-item active" data-interval="10000">
-      <img src="{% static 'images/SanFran.jpg'%}" class="d-block carousel-img w-100" alt="...">
-    </div>
-    <div class="carousel-item carousel-fade" data-interval="10000">
-      <img src="{% static 'images/London.jpg'%}" class="d-block carousel-img w-100" alt="...">
-    </div>
-    <div class="carousel-item carousel-fade" data-interval="10000">
-      <img src="{% static 'images/Gibralter.jpg'%}" class="d-block carousel-img w-100" alt="...">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+<!-- Carousel -->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+ <ol class="carousel-indicators">
+   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+   <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+   <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+ </ol>
+ <div class="carousel-inner carousel-fade">
+   <div class="carousel-item active" data-interval="10000">
+     <img src="{% static 'images/SanFran.jpg'%}" class="d-block carousel-img w-100" alt="...">
+   </div>
+   <div class="carousel-item carousel-fade" data-interval="10000">
+     <img src="{% static 'images/London.jpg'%}" class="d-block carousel-img w-100" alt="...">
+   </div>
+   <div class="carousel-item carousel-fade" data-interval="10000">
+     <img src="{% static 'images/Gibralter.jpg'%}" class="d-block carousel-img w-100" alt="...">
+   </div>
+ </div>
+ <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+   <span class="sr-only">Previous</span>
+ </a>
+ <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+   <span class="sr-only">Next</span>
+ </a>
 </div>
  <!-- End Carousel -->
-
+  <div class="meowth_div">
+    <img class="meowth_balloon moving" src="{% static 'images/logo.png'%}" alt="">
+  </div>
 <!--Wayfarer Card-->
 
 <div class=" text-center">
-  <div class="card-header">
-    Wayfarer
+  <div class="ribbon-container">
+    <div class="ribbon">
+      <h3 class="ribbon-content">Wayfarer</h3>
+    </div>
   </div>
   <div class="card-body">
     <h5 class="card-title"></h5>
     <p class="card-text col-lg-6 greeting">Wayfarer is a travel community that serves to both answer questions and inspire travelers. It's a place to read and submit opinions, get advice on travel-related subjects, and browse for ideas, tips, and answers to questions you didn't even know you had.</p>
-  </div>
-  <div class="card-footer ">
-    Happy Exploring!
+  <div class="ribbon-container">
+    <div class="ribbon">
+      <h3 class="ribbon-content">Happy Exploring!</h3>
+    </div>
   </div>
   <div class="card-footer2 text-muted">
     Top Three Recent Posts
@@ -75,8 +79,18 @@
 </div>
 
 
+<script>
+    function findElement(query, isMulti = false) {
+        return (!isMulti) ?
+                document.querySelector(query) :
+                document.querySelectorAll(query);
+    }
 
-
+        findElement('.moving').addEventListener('click', (e) => {
+            findElement('.meowth_balloon').classList.remove('moving');  
+            findElement('.meowth_balloon').classList.add('blasting_off'); 
+        })
+</script>
 
 
 {% endblock %}

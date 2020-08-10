@@ -8,7 +8,7 @@ body{
 }
 
 .content {
-  min-height: 100%;
+  min-height: 100vh;
   padding-bottom: 100px;
   margin-bottom: -50px;
   background: #8e9eab;  /* fallback for old browsers */
@@ -77,4 +77,81 @@ nav.navbar {
 .footer p {
   margin-left: 50px;
   margin-top: 3px
+}
+
+
+
+
+
+/* Ribbon from https://codepen.io/harlleye/pen/jEJeb */
+.ribbon-container {
+  margin-top: 20px;
+  background: transparent !important;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+.ribbon {
+  background: hsl(0, 79%, 50%) url(http://portfolio.queenofwhisks.com/demo/overlay/noise.png);
+  box-shadow: 2px 6px 12px rgba(0,0,0,0.5);
+  font-family: Charter, serif;
+  font-size: 16px;
+  line-height: 1.0;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0.25em 0;
+  position: relative;
+  width: 90%;
+  height: 45px;
+}
+.ribbon:before,
+.ribbon:after {
+  border: 1.5em solid hsl(0, 79%, 50%);
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -1em;
+  z-index: -1;
+}
+.ribbon:before {
+  left: -2em;
+  border-right-width: 1.5em;
+  border-left-color: transparent;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+.ribbon:after {
+  right: -2em;
+  border-left-width: 1.5em;
+  border-right-color: transparent;
+  box-shadow: -2px 2px 2px rgba(0,0,0,0.5);
+}
+.ribbon-content {
+  /* border-top: 0.0625em dashed hsl(0, 79%, 50%); */
+  /* border-bottom: 0.0625em dashed hsl(0, 79%, 50%); */
+  /* box-shadow: inset 0px 1px 1px rgba(0,0,0,0.08), inset 0px -1px 1px rgba(255,255,255,0.08), 0px -1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.08); */
+  display: block;
+  margin-top: -20px;
+  padding: 0.6875em 0;
+}
+.ribbon-content:before,
+.ribbon-content:after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-color: hsl(0, 79%, 50%) transparent transparent transparent;
+  bottom: -1em;
+}
+.ribbon-content:before {
+  left: 0;
+  border-width: 1em 0 0 1em;
+}
+.ribbon-content:after {
+  right: 0;
+  border-width: 1em 1em 0 0;
+}
+.ribbon h2 {
+  color: black;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.25);
 }
