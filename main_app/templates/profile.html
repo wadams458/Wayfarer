@@ -20,7 +20,9 @@
             </p>
             <p>City: {{profile.city}}</p>
             <p> Date Joined: {{profile.user.date_joined}}</p>
-            <a href="{% url 'profile_edit' %}">Edit Profile</a>
+            {% if user.id == profile.user.id %}
+              <a href="{% url 'profile_edit' user.id %}">Edit Profile</a>
+            {% endif %}
           </div>
           </div>
         </div>
@@ -34,9 +36,11 @@
           <h2 class="subtitle">
             {{profile.user.username}}'s Posts
           </h2>
-          <a href="{% url 'post_add' %}">
-            <button type="button" class="btn btn-primary">Create Post</button>
-          </a>
+          {% if user.id == profile.user.id %}
+            <a href="{% url 'post_add' %}">
+              <button type="button" class="btn btn-primary">Create Post</button>
+            </a>
+          {% endif %}
         </div>
         <!-- Card Post -->
         {% if not posts  %}

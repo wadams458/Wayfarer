@@ -13,7 +13,11 @@
       {% comment %} <div class="col" style="width=100vw"> {% endcomment %}
         <h1 class="title">Edit Profile</h1>
         <div class="profile">
-          <img id="profile-picture" class="img-fluid" src="{{ user.profile.img.url }}">
+          <div>
+            <img id="profile-picture" class="img-fluid" src="{{ user.profile.img.url }}">
+            <br>
+            {{profile_form.img}}
+          </div>
           <div class="profile-body">
             <p class="name">Username: {{user.username}}</p>
             <form method="POST" enctype="multipart/form-data">
@@ -26,6 +30,7 @@
               <label>City</label>
               <input class="form-control" id="{{ field.id_for_label }}" maxlength="150" name="{{ profile_form.city.html_name }}" value="{{user.profile.city}}"/> 
               <hr>
+              <a class="btn btn-info" href="{% url 'profile' user.id %}">Cancel</a>
               <button class="btn btn-primary"type="submit">Save</button>
             </form>
           </div>
@@ -41,15 +46,12 @@
           <h2 class="subtitle">
             {{user.username}}'s Posts
           </h2>
-          <a href="{% url 'post_add' %}">
-            <button type="button" class="btn btn-primary">Create Post</button>
-          </a>
         </div>
         <!-- Card Post -->
         {% if not posts  %}
         <div class="row">    
           <div class="col">
-            <p>You haven't made any posts</p>
+            <p>Posts are not available in this mode.</p>
           </div>
         </div>
         {% else %}

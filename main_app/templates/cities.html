@@ -10,15 +10,14 @@
     <div class="city-container">
       <h1>Cities</h1>
       {% for city in cities %}
-      
-      <a href="{% url 'cities' city.id %}">
-        <button class="cities-btn {% if selected_city.id == city.id %} active {% endif %}">
-          <img src="{{ city.img.url }}" class="card-img" alt="Placeholder image">
-          <h4 class="card-title">
-            {{city.name}}
-          </h4>
-        </button>
-      </a>
+        <a href="{% url 'cities' city.id %}">
+          <button class="cities-btn {% if selected_city.id == city.id %} active {% endif %}">
+            <img src="{{ city.img.url }}" class="card-img" alt="Placeholder image">
+            <h4 class="card-title">
+              {{city.name}}
+            </h4>
+          </button>
+        </a>
       {% endfor %}
     </div>
   </div>
