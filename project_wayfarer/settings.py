@@ -130,3 +130,6 @@ LOGOUT_REDIRECT_URL = '/'
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'main_app') 
 MEDIA_URL = '/media/'
+
+
+django_on_heroku.settings(locals())
