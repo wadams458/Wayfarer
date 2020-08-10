@@ -7,30 +7,40 @@
 
 {% block content %}
 <section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col">
+  <div class="profile-container">
+    <div class="container">
+    {% comment %} <div class="row"> {% endcomment %}
+      {% comment %} <div class="col" style="width=100vw"> {% endcomment %}
         <h1 class="title">Profile</h1>
         <div class="profile">
-          <img id="profile-picture" class="img-fluid" src="{% static profile.img %}">
+          <img id="profile-picture" class="img-fluid" src="{{ profile.img.url }}">
           <div class="profile-body">
             <p class="name">Username: {{profile.user.username}}</p>
             <p class="name">Name: {{profile.user.first_name}} {{profile.user.last_name}}
             </p>
             <p>City: {{profile.city}}</p>
             <p> Date Joined: {{profile.user.date_joined}}</p>
-            <a href="{% url 'profile_edit' %}">Edit Profile</a>
+            {% if user.id == profile.user.id %}
+              <a href="{% url 'profile_edit' user.id %}">Edit Profile</a>
+            {% endif %}
+          </div>
           </div>
         </div>
-      </div>
+      {% comment %} </div> {% endcomment %}
+    {% comment %} </div> {% endcomment %}
     </div>
+    <div class="container">
     <div class="row">
       <div class="col">
         <div class="posts">
           <h2 class="subtitle">
             {{profile.user.username}}'s Posts
           </h2>
-          <button type="button" class="btn btn-primary">Create Post</button>
+          {% if user.id == profile.user.id %}
+            <a href="{% url 'post_add' %}">
+              <button type="button" class="btn btn-primary">Create Post</button>
+            </a>
+          {% endif %}
         </div>
         <!-- Card Post -->
         {% if not posts  %}
@@ -44,9 +54,9 @@
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-2">
-                <img src="{% static post.img %}" class="card-img" alt="Placeholder image">
+                <img src="{{ post.img.url }}" class="card-img" alt="Placeholder image">
               </div>
-              <div class="col-md-8">
+              <div class="col-md-8" style="width: 100%">
                 <div class="card-body">
                   <h5 class="card-title">
                     <a href="{% url 'post' post.id %}">
@@ -61,6 +71,7 @@
           </div>
           {% endfor %}
           {% endif %}
+      </div>
       </div>
     </div>
   </div>

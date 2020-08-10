@@ -22,7 +22,6 @@
 </head>
 <body>
   <header> 
-
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="/">    
         <img src="{% static 'images/logo.png'%}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
@@ -41,7 +40,7 @@
       <div class="collapse navbar-collapse" id="navbarColor02">
         <!-- Left Nav -->
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active"> <a class="nav-link" href="{% url 'profile' %}">City</a></li>
+          <li class="nav-item active"> <a class="nav-link" href="{% url 'cities' 1 %}">Cities</a></li>
           
         </ul>
 
@@ -52,7 +51,7 @@
                 Profile
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                <a class="dropdown-item" href="{% url 'profile' user.id %}">Profile</a>
                 <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
               </div>
             </li>
@@ -65,14 +64,13 @@
     </nav>
 </header>
 
-
+  <section class="content">
     {% block content %}
     {% endblock %}
+  </section>
 
-  <footer class="page-footer">
-    <nav class="navbar fixed-bottom navbar-light bg-light">
-      <a class="navbar-brand" href="#">All Rights Reserved, &copy; 2020 Wayfarer &nbsp;</a>
-    </nav>
+  <footer class="footer">
+      <p>All Rights Reserved, &copy; 2020 Wayfarer &nbsp;</p>
   </footer>
 </body>
 </html>

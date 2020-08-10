@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock %}
+{% block content %}
+  <form method="POST" enctype="multipart/form-data" onsubmit="return copyContent()">
+  {% csrf_token %}
+  <div class="container">
+      <div class="row">
+          <div class="col-xs-12 col-lg-10">
+              <!-- Title -->
+              <h3 class="mt-4">Title: {{form.title}}</h3> 
+              {% comment %} <h3 class="mt-4">{{form.city}}</h3> {% endcomment %}
+              <!-- Author -->
+              <div class="lead">
+                  by
+                  <a href="profile">{{post.user.first_name}} {{post.user.last_name}}</a> in <strong>City:</strong> {{form.city}}
+                  <br>
+                  <div class="post-title-header">
+                  Posted (right now)
+                      <!-- Post Button -->
+                      <div class="action-btns">
+                          <a class="delete-button" href="{% url 'cities' 1 %}">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                          </a>
+
+                          <button type="submit" class="check-button">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                          </button>
+                      </div>
+                  </div>
+                  <hr>
+              </div>
+              <!-- Preview Image -->
+              <img class="img-fluid rounded" src="{% static 'images/default_city.jpg' %}" alt="">
+              <br>
+              <strong>Image:</strong>
+              <br>
+                {{form.img}}
+              <hr>
+              <!-- Post Content -->
+              <!-- Post Content -->
+              <strong>Body:</strong>
+              <br>
+              <textarea rows="20" class="form-control textarea" id="{{ form.body.html_name }}"  name="{{ form.body.html_name }}"> </textarea>  
+          </div>
+      </div>
+  </div>
+  </form>
+
+{% endblock %}

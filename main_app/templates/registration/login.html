@@ -24,7 +24,7 @@
 			    	  		<span class="input-group-text"><i class="fa {% if field.html_name == "username" %}fa-user{% else %}fa-key{% endif %}"></i></span>
 			    	  	</div>
                     <input class="form-control" id="{{ field.id_for_label }}" maxlength="150" 
-                           name="{{ field.html_name }}" placeholder="{{ field.html_name }}" 
+                           name="{{ field.html_name }}" placeholder="{{field.html_name}}"
                            {% if "password" in field.html_name %} type="password" {% else %} type="text" {% endif %} 
                     /> 
                     {{ field.errors }}
@@ -56,7 +56,10 @@
 			    	  		<span class="input-group-text"><i class="fa {% if field.html_name == "username" %}fa-user{% else %}fa-key{% endif %}"></i></span>
 			    	  	</div>
                     <input class="form-control" id="{{ field.id_for_label }}" maxlength="150" 
-                           name="{{ field.html_name }}" placeholder="{{ field.html_name }}"  
+                           name="{{ field.html_name }}" 
+                           {% if "password1" == field.html_name %} placeholder="password" 
+                           {% elif "password2" == field.html_name %} placeholder="confirm password" 
+                           {% else %} placeholder="{{field.html_name}}" {% endif %}
                            {% if "password" in field.html_name %} type="password" {% else %} type="text" {% endif %}
                     /> 
                     {{ field.errors }}
