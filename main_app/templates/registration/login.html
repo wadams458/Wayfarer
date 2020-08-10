@@ -7,7 +7,7 @@
 {% block content %}
 
 <div class="f-container">
-	<div class="d-flex justify-content-center picture">
+	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 
       <div class="group-container">
@@ -23,9 +23,8 @@
 			    	  	<div class="input-group-prepend">
 			    	  		<span class="input-group-text"><i class="fa {% if field.html_name == "username" %}fa-user{% else %}fa-key{% endif %}"></i></span>
 			    	  	</div>
-                    <input class="form-control" id="{{ field.id_for_label }}" maxlength="150" name="{{ field.html_name }}" 
-                           {% if "password1" == field.html_name %} placeholder="password" 
-                           {% elif "password2" == field.html_name %} placeholder="confirm password" {% else %} placeholder="{{field.html_name}}" {% endif %}
+                    <input class="form-control" id="{{ field.id_for_label }}" maxlength="150" 
+                           name="{{ field.html_name }}" placeholder="{{field.html_name}}"
                            {% if "password" in field.html_name %} type="password" {% else %} type="text" {% endif %} 
                     /> 
                     {{ field.errors }}
@@ -56,10 +55,11 @@
 			    	  	<div class="input-group-prepend">
 			    	  		<span class="input-group-text"><i class="fa {% if field.html_name == "username" %}fa-user{% else %}fa-key{% endif %}"></i></span>
 			    	  	</div>
-                    <input class="form-control" id="{{ field.id_for_label }}" maxlength="150" name="{{ field.html_name }}"
+                    <input class="form-control" id="{{ field.id_for_label }}" maxlength="150" 
+                           name="{{ field.html_name }}" 
                            {% if "password1" == field.html_name %} placeholder="password" 
                            {% elif "password2" == field.html_name %} placeholder="confirm password" 
-                           {% else %} placeholder="{{field.html_name}}" {% endif %}  
+                           {% else %} placeholder="{{field.html_name}}" {% endif %}
                            {% if "password" in field.html_name %} type="password" {% else %} type="text" {% endif %}
                     /> 
                     {{ field.errors }}
