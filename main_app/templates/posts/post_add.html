@@ -10,7 +10,7 @@
       <div class="row">
           <div class="col-xs-12 col-lg-10">
               <!-- Title -->
-              <h2>Title: {{form.title}}</h2> 
+              <h3 class="mt-4">Title: {{form.title}}</h3> 
               {% comment %} <h3 class="mt-4">{{form.city}}</h3> {% endcomment %}
               <!-- Author -->
               <div class="lead">
@@ -40,19 +40,13 @@
                 {{form.img}}
               <hr>
               <!-- Post Content -->
-              <strong>Body:</strong> <p><span class="textarea" contenteditable>{{form.instance.body}}</span></p>
-              <input class="form-control" id="{{ form.body.html_name }}"  name="{{ form.body.html_name }}" type="hidden"/> 
+              <!-- Post Content -->
+              <strong>Body:</strong>
+              <br>
+              <textarea rows="20" class="form-control textarea" id="{{ form.body.html_name }}"  name="{{ form.body.html_name }}"> </textarea>  
           </div>
       </div>
   </div>
   </form>
-
-  <script>
-    function copyContent () {
-        document.getElementById("{{form.body.html_name}}").value =  
-            document.querySelector(".textarea").innerHTML;
-        return true;
-    }
-  </script>
 
 {% endblock %}
