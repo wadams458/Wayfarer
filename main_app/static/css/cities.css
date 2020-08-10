@@ -76,7 +76,8 @@ a:hover {
   margin: 16px;
   margin-top: 24px;
   margin-bottom: 24px;
-  background-color: #ffffff;
+  background: #ffffff;  /* fallback for old browsers */
+ 
   /* height: 100%; */
 }
 
