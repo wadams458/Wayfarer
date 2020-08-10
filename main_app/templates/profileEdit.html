@@ -1,49 +1,84 @@
 {% extends 'base.html' %}
-{% block content %}
-<form method="POST" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{ user_form.as_p }}
-  {{ profile_form.as_p }}
-  <button type="submit">Save</button>
-</form>
-
-<h1>TEST {{user_form.first_name.html_name}}</h1>
-<input class="form-control" id="{{ field.id_for_label }}" maxlength="150" name="{{ user_form.first_name.html_name }}" placeholder="First Name"/> 
-
-
-
-
-{% for field in profile_form %}
-  <div class="input-group form-group">
-	<div class="input-group-prepend">
-		<span class="input-group-text"><i class="fa {% if field.html_name == "username" %}fa-user{% else %}fa-key{% endif %}"></i></span>
-	</div>
-      <input class="form-control" id="{{ field.id_for_label }}" maxlength="150" name="{{ field.html_name }}" 
-             {% if "password1" == field.html_name %} placeholder="password" 
-             {% elif "password2" == field.html_name %} placeholder="confirm password" {% else %} placeholder="{{field.html_name}}" {% endif %}
-             {% if "password" in field.html_name %} type="password" {% else %} type="text" {% endif %} 
-      /> 
-      {{ field.errors }}
-  </div>
-{% endfor %}
-
-
+{% load static %}
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 {% endblock %}
 
 
-{% for field in login_form %}
-                <div class="input-group form-group">
-			    	  	<div class="input-group-prepend">
-			    	  		<span class="input-group-text"><i class="fa {% if field.html_name == "username" %}fa-user{% else %}fa-key{% endif %}"></i></span>
-			    	  	</div>
-                    <input class="form-control" id="{{ field.id_for_label }}" maxlength="150" 
-                           name="{{ field.html_name }}" placeholder="{{ field.html_name }}" 
-                           {% if "password" in field.html_name %} type="password" {% else %} type="text" {% endif %} 
-                    />
-                    {{ field.errors }}
+{% block content %}
+<section class="section">
+  <div class="profile-container">
+    <div class="container">
+    {% comment %} <div class="row"> {% endcomment %}
+      {% comment %} <div class="col" style="width=100vw"> {% endcomment %}
+        <h1 class="title">Edit Profile</h1>
+        <div class="profile">
+          <img id="profile-picture" class="img-fluid" src="{{ user.profile.img.url }}">
+          <div class="profile-body">
+            <p class="name">Username: {{user.username}}</p>
+            <form method="POST" enctype="multipart/form-data">
+              <hr>
+              {% csrf_token %}
+              <label>First Name</label>
+              <input class="form-control" id="{{ field.id_for_label }}" maxlength="150" name="{{ user_form.first_name.html_name }}" value="{{user.first_name}}"/> 
+              <label>Last Name</label>
+              <input class="form-control" id="{{ field.id_for_label }}" maxlength="150" name="{{ user_form.last_name.html_name }}" value="{{user.last_name}}"/> 
+              <label>City</label>
+              <input class="form-control" id="{{ field.id_for_label }}" maxlength="150" name="{{ profile_form.city.html_name }}" value="{{user.profile.city}}"/> 
+              <hr>
+              <button class="btn btn-primary"type="submit">Save</button>
+            </form>
+          </div>
+          </div>
+        </div>
+      {% comment %} </div> {% endcomment %}
+    {% comment %} </div> {% endcomment %}
+    </div>
+    <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="posts">
+          <h2 class="subtitle">
+            {{user.username}}'s Posts
+          </h2>
+          <a href="{% url 'post_add' %}">
+            <button type="button" class="btn btn-primary">Create Post</button>
+          </a>
+        </div>
+        <!-- Card Post -->
+        {% if not posts  %}
+        <div class="row">    
+          <div class="col">
+            <p>You haven't made any posts</p>
+          </div>
+        </div>
+        {% else %}
+        {% for post in posts %}
+          <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-2">
+                <img src="{{ post.img.url }}" class="card-img" alt="Placeholder image">
+              </div>
+              <div class="col-md-8" style="width: 100%">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <a href="{% url 'post' post.id %}">
+                      {{ post.title }}
+                    </a>
+                  </h5>
+                  <p class="card-text">{{ post.body }}</p>
+                  <a href="{% url 'post' post.id %}" class="card-link">View Post</a>
                 </div>
-              {% endfor %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
 
 
-
-  
