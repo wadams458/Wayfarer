@@ -14,13 +14,13 @@
         <h1 class="title">Edit Profile</h1>
         <div class="profile">
           <div>
+          <form method="POST" enctype="multipart/form-data">
             <img id="profile-picture" class="img-fluid" src="{{ user.profile.img.url }}">
             <br>
             {{profile_form.img}}
           </div>
           <div class="profile-body">
             <p class="name">Username: {{user.username}}</p>
-            <form method="POST" enctype="multipart/form-data">
               <hr>
               {% csrf_token %}
               <label>First Name</label>
